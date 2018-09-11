@@ -11,7 +11,7 @@ import java.util.Map;
 public interface HttpResponse extends Closeable {
 
 	/**
-	 * Gets the entity and Maps any errors which will result in a ResponseBaseException
+	 * Gets the entity and Maps any errors which will response in a ResponseBaseException
 	 *
 	 * @param <T> the generic type
 	 * @param returnType the return type

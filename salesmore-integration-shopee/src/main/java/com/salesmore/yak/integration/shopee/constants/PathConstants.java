@@ -14,5 +14,13 @@ public class PathConstants {
 
     public static final String SHOP_AUTH_RELATIVE_PATH = "/shop/auth_partner";
 
+    //public static final String SHOP_AUTH_QUERY_RELATIVE_PATH = "?id=%s&token=%s&redirect=%s";
+
+    public static final String QUERY_PARAM_ID = "id";
+
+    public static final String QUERY_PARAM_TOKEN = "token";
+
+    public static final String QUERY_PARAM_REDIRECT = "redirect";
+
 
 }

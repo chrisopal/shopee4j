@@ -24,7 +24,7 @@ public abstract class BaseClientSession<R, T extends AbstractRestClient<T>> impl
 
     protected static final ThreadLocal<BaseClientSession> sessions = new ThreadLocal<BaseClientSession>();
 
-    Config config;
+    protected Config config;
     Map<String, Object> headers = new HashMap<String, Object>();
 
     public static BaseClientSession getCurrent() {

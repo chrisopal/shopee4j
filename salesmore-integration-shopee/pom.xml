@@ -16,6 +16,7 @@
 
     <properties>
         <lombok.version>1.18.2</lombok.version>
+        <testing.version>6.14.3</testing.version>
     </properties>
 
     <dependencies>
@@ -29,6 +30,13 @@
             <groupId>com.salesmore.yak</groupId>
             <artifactId>salesmore-integration-core</artifactId>
             <version>${project.version}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.testng/testng -->
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>${testing.version}</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 </project>

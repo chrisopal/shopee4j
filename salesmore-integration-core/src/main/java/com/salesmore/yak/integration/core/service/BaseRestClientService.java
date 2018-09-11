@@ -8,6 +8,8 @@ import com.salesmore.yak.integration.core.transport.HttpExecutor;
 import com.salesmore.yak.integration.core.transport.HttpMethod;
 import com.salesmore.yak.integration.core.transport.HttpRequest;
 import com.salesmore.yak.integration.core.transport.HttpResponse;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -21,6 +23,8 @@ import static com.salesmore.yak.integration.core.transport.HttpRequest.RequestBu
 public class BaseRestClientService {
 
     private Function<String, String> endpointFunc;
+
+    protected final Logger LOGGER = LoggerFactory.getLogger(this.getClass());
 
     protected BaseRestClientService() {
 

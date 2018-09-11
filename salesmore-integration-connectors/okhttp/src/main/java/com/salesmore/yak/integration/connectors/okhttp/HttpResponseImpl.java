@@ -46,7 +46,7 @@ public class HttpResponseImpl implements HttpResponse {
     }
 
     /**
-     * Gets the entity and Maps any errors which will result in a ResponseException
+     * Gets the entity and Maps any errors which will response in a ResponseException
      *
      * @param <T> the generic type
      * @param returnType the return type

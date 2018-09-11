@@ -7,7 +7,7 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * A List result which wrappers a JSON Array
+ * A List response which wrappers a JSON Array
  *
  * @param <T> the generic type
  */

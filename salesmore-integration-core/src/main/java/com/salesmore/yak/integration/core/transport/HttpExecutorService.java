@@ -9,7 +9,7 @@ package com.salesmore.yak.integration.core.transport;
 public interface HttpExecutorService {
 
     /**
-     * Executes the given request and returns the {@code HttpResponse} result from the server
+     * Executes the given request and returns the {@code HttpResponse} response from the server
      *
      * @param <R> the underlying return entity type
      * @param request the request to execute

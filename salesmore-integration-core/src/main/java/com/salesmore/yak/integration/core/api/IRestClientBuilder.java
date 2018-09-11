@@ -50,7 +50,7 @@ public interface IRestClientBuilder<R, T extends IRestClientBuilder<R, T>> {
 
     /**
      * Attempts to connect, authenticated and obtain an authorization access
-     * entity which contains a token, As a result a client will be returned
+     * entity which contains a token, As a response a client will be returned
      * with token obtained,
      *
      * OAuth2/Basic Auth/custom auth

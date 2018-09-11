@@ -1,4 +1,4 @@
-package com.salesmore.yak.integration.shopee.model.shop.result;
+package com.salesmore.yak.integration.shopee.model.shop.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.salesmore.yak.integration.shopee.model.common.Country;
@@ -8,22 +8,24 @@ import lombok.EqualsAndHashCode;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class ShopInfoUpdatedResult extends ShopInfoBase {
+public class ShopInfo extends ShopInfoBase {
+
+    public static final long serialVersionUID = 1L;
 
     /**
      * Shopee's unique identifier for a shop.
      */
-    @JsonProperty("shopid")
+    @JsonProperty("shop_id")
     private long shopId;
-
-    /**
-     * Warning message if parts of image/video uploads failed.
-     */
-    private String warning;
 
     /**
      * The two-digit code representing the country where the order was made.
      */
     private Country country;
 
+    /**
+     * Listing limitation of items for the shop.
+     */
+    @JsonProperty("item_limit")
+    private long itemLimit;
 }
