@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>salesmore-integration-connectors</artifactId>
+        <groupId>com.salesmore.yak</groupId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <properties>
+        <okhttp.version>3.9.1</okhttp.version>
+    </properties>
+
+    <artifactId>okhttp</artifactId>
+    <packaging>jar</packaging>
+    <name>SalesMore OkHttp Connector</name>
+    <description>Http client Implementation using OkHttp</description>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.squareup.okhttp3</groupId>
+            <artifactId>okhttp</artifactId>
+            <version>${okhttp.version}</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+                <extensions>true</extensions>
+                <configuration>
+                    <instructions>
+                        <Bundle-Name>${project.name}</Bundle-Name>
+                        <Export-Package>
+                            com.salesmore.yak.integration.connectors.okhttp
+                        </Export-Package>
+                        <Import-Package>
+                            !com.salesmore.yak.integration.connectors.okhttp,
+                            *
+                        </Import-Package>
+                        <!--
+                        Required for SPI in OSGi:
+                        http://aries.apache.org/modules/spi-fly.html#specconf
+
+                        This bundle defines an implementation for following services in META-INF-services:
+                        com.salesmore.yak.integration.core.transport.HttpExecutorService
+                         -->
+                        <Require-Capability>
+                            osgi.extender; filter:="(osgi.extender=osgi.serviceloader.registrar)"
+                        </Require-Capability>
+                        <Provide-Capability>
+                            osgi.serviceloader; osgi.serviceloader=com.salesmore.yak.integration.core.transport.HttpExecutorService
+                        </Provide-Capability>
+                    </instructions>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+
+</project>
