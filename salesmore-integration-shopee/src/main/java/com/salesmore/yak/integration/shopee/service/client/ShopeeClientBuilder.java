@@ -13,12 +13,12 @@ import com.salesmore.yak.integration.shopee.api.ShopeeClient;
  */
 public class ShopeeClientBuilder extends BaseRestClientBuilder<ShopeeClient, IShopeeClientBuilder> implements IShopeeClientBuilder {
 
-    private String partnerId;
+    private long partnerId;
     private String partnerKey;
-    private String shopId;
+    private long shopId;
 
     @Override
-    public IShopeeClientBuilder partnerId(String partnerId) {
+    public IShopeeClientBuilder partnerId(long partnerId) {
         this.partnerId = partnerId;
         return this;
     }
@@ -30,7 +30,7 @@ public class ShopeeClientBuilder extends BaseRestClientBuilder<ShopeeClient, ISh
     }
 
     @Override
-    public IShopeeClientBuilder shopId(String shopId) {
+    public IShopeeClientBuilder shopId(long shopId) {
         this.shopId = shopId;
         return this;
     }

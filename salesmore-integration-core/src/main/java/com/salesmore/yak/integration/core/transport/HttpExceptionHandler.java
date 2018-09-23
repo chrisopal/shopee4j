@@ -4,6 +4,8 @@ import com.salesmore.yak.integration.core.api.exceptions.AuthenticationException
 import com.salesmore.yak.integration.core.api.exceptions.ClientResponseException;
 import com.salesmore.yak.integration.core.api.exceptions.ResponseException;
 import com.salesmore.yak.integration.core.api.exceptions.ServerResponseException;
+import com.salesmore.yak.integration.core.model.ErrorBaseResponse;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * Exception Handles for common Http messages and status codes
@@ -40,6 +42,17 @@ public class HttpExceptionHandler {
             return new ServerResponseException(message, status, cause);
 
         return new ResponseException(message, status, cause);
+    }
+
+
+    /**
+     * Maps an Exception based on the error response entity
+     *
+     * @param errorBaseResponse error response
+     * @return the response exceptions
+     */
+    public static ResponseException mapException(ErrorBaseResponse errorBaseResponse) {
+        return new ResponseException(StringUtils.isEmpty(errorBaseResponse.getMsg()) ? String.format("%s:%s", errorBaseResponse.getError().code(), errorBaseResponse.getError().description()) : errorBaseResponse.getMsg(), 500 );
     }
     
 }

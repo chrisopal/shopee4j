@@ -67,7 +67,7 @@ public class ShopPerformance implements ModelEntity {
     /**
      * Threshold prohibited_listing_violation
      *
-     * It is the responsibility of sellers to ensure all items listed under their profiles
+     * It is the responsibility of sellers to ensure all item listed under their profiles
      * are fully compliant with local laws, as well as Shopee’s terms and policies.
      */
     @JsonProperty("prohibited_listing_violation")
@@ -85,7 +85,7 @@ public class ShopPerformance implements ModelEntity {
     /**
      * Threshold counterfeit_listing_violation
      *
-     * Sellers should only list authentic products. Counterfeit items are products
+     * Sellers should only list authentic products. Counterfeit item are products
      * that were made in exact imitation of an existing brand with the intention to deceive or defraud,
      * and may include, but are not limited to: - Products that are fake or replicas of an existing
      * official product - Products that have never been produced by a specific brand -

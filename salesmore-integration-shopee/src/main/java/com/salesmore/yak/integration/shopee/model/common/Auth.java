@@ -4,9 +4,9 @@ public abstract class Auth implements com.salesmore.yak.integration.core.common.
 
     private static final long serialVersionUID = 1L;
 
-    private String partnerId;
+    private Long partnerId;
     private String partnerKey;
-    private String shopId;
+    private Long shopId;
 
     private transient Type type;
 
@@ -22,11 +22,11 @@ public abstract class Auth implements com.salesmore.yak.integration.core.common.
         this.type = type;
     }
 
-    public String getPartnerId() {
+    public Long getPartnerId() {
         return partnerId;
     }
 
-    public void setPartnerId(String partnerId) {
+    public void setPartnerId(Long partnerId) {
         this.partnerId = partnerId;
     }
 
@@ -38,11 +38,11 @@ public abstract class Auth implements com.salesmore.yak.integration.core.common.
         this.partnerKey = partnerKey;
     }
 
-    public String getShopId() {
+    public Long getShopId() {
         return shopId;
     }
 
-    public void setShopId(String shopId) {
+    public void setShopId(Long shopId) {
         this.shopId = shopId;
     }
 }

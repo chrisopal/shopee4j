@@ -16,6 +16,7 @@ public class ObjectMapperSingleton  {
     
     ObjectMapper mapper;
     ObjectMapper rootMapper;
+    ObjectMapper requestMapper;
 
     private ObjectMapperSingleton() {
 
@@ -25,6 +26,9 @@ public class ObjectMapperSingleton  {
         mapper.enable(SerializationFeature.INDENT_OUTPUT);
         mapper.enable(DeserializationFeature.ACCEPT_SINGLE_VALUE_AS_ARRAY);
         mapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
+
+        requestMapper = new ObjectMapper();
+        requestMapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
 
         rootMapper = new ObjectMapper();
         rootMapper.setSerializationInclusion(Include.NON_NULL);
@@ -38,6 +42,10 @@ public class ObjectMapperSingleton  {
 
     public static ObjectMapper getContext(Class<?> type) {
         return type.getAnnotation(JsonRootName.class) == null ? INSTANCE.mapper : INSTANCE.rootMapper;
+    }
+
+    public static ObjectMapper getRequestMapper() {
+        return INSTANCE.requestMapper;
     }
 
 }

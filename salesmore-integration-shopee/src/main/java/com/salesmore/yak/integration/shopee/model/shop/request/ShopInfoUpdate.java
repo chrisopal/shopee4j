@@ -1,15 +1,18 @@
 package com.salesmore.yak.integration.shopee.model.shop.request;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.salesmore.yak.integration.shopee.model.IRequestBase;
-import lombok.Builder;
+import com.salesmore.yak.integration.shopee.model.BaseRequest;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.Singular;
+import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
 import java.util.List;
 
 @Data
+@EqualsAndHashCode(callSuper = true)
+@ToString(callSuper = true)
 @SuperBuilder
 public class ShopInfoUpdate extends BaseRequest {
 

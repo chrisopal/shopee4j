@@ -57,7 +57,7 @@ public class HttpExecutorServiceImpl implements HttpExecutorService {
     private <R> HttpResponse invokeRequest(HttpCommand<R> command) throws Exception {
         Response response = command.execute();
         if (command.getRetries() == 0 && response.code() == 401) {
-            //Suppose to do reAuthenticate, since our Fyndiq client doesn't require it.
+            //Suppose to do reAuthenticate, since client doesn't require it.
             //TODO: to be
             throw new AuthenticationException("Authentication Failed", response.code());
         }

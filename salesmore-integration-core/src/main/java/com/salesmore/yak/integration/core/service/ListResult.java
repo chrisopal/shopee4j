@@ -27,4 +27,7 @@ public abstract class ListResult<T> implements ModelEntity, ListType {
     public T first() {
         return value().isEmpty() ? null : value().get(0);
     }
+
+
+    public boolean hasMore() { return false; }
 }

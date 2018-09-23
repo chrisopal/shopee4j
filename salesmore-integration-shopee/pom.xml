@@ -38,5 +38,11 @@
             <version>${testing.version}</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>com.salesmore.yak</groupId>
+            <artifactId>okhttp</artifactId>
+            <version>${project.version}</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 </project>

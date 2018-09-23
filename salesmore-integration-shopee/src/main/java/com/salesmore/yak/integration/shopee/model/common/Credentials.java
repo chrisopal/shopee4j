@@ -15,13 +15,13 @@ public class Credentials extends Auth implements AuthStore {
         super(Type.CREDENTIALS);
     }
 
-    public Credentials(String partnerId, String partnerKey) {
+    public Credentials(Long partnerId, String partnerKey) {
         this();
         setPartnerId(partnerId);
         setPartnerKey(partnerKey);
     }
 
-    public Credentials(String partnerId, String partnerKey, String shopId) {
+    public Credentials(Long partnerId, String partnerKey, Long shopId) {
         this();
         setPartnerId(partnerId);
         setPartnerKey(partnerKey);

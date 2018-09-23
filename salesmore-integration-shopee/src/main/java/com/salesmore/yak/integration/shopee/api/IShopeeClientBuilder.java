@@ -11,7 +11,7 @@ public interface IShopeeClientBuilder extends IRestClientBuilder<ShopeeClient, I
      * @param partnerId partner Id
      * @return ShopeeClient
      */
-    IShopeeClientBuilder partnerId(String partnerId);
+    IShopeeClientBuilder partnerId(long partnerId);
 
     /**
      * Assign Unique Partner Key
@@ -26,6 +26,6 @@ public interface IShopeeClientBuilder extends IRestClientBuilder<ShopeeClient, I
      * @param shopId shop id
      * @return ShopeeClient
      */
-    IShopeeClientBuilder shopId(String shopId);
+    IShopeeClientBuilder shopId(long shopId);
 
 }

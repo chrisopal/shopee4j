@@ -3,8 +3,8 @@ package com.salesmore.yak.integration.shopee.service.provider;
 import com.google.common.collect.Maps;
 import com.salesmore.yak.integration.core.api.APIProvider;
 import com.salesmore.yak.integration.core.api.exceptions.ApiNotFoundException;
-import com.salesmore.yak.integration.shopee.api.domain.ShopService;
-import com.salesmore.yak.integration.shopee.service.shop.ShopServiceImpl;
+import com.salesmore.yak.integration.shopee.api.domain.*;
+import com.salesmore.yak.integration.shopee.service.domain.*;
 
 
 import java.util.Map;
@@ -22,7 +22,15 @@ public class DefaultAPIProvider implements APIProvider {
 
     @Override
     public void initialize() {
+
         bind(ShopService.class, ShopServiceImpl.class);
+        bind(ShopCategoryService.class, ShopCategoryServiceImpl.class);
+        bind(ItemService.class, ItemServiceImpl.class);
+        bind(ImageService.class, ImageServiceImpl.class);
+        bind(DiscountService.class, DiscountServiceImpl.class);
+        bind(OrderService.class, OrderServiceImpl.class);
+        bind(LogisticsService.class, LogisticsServiceImpl.class);
+        bind(ReturnsService.class, ReturnsServiceImpl.class);
     }
 
     /**

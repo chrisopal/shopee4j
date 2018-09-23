@@ -30,8 +30,8 @@ public class HttpEntityHandler {
                 if (handle404(handle).isComplete()) {
                     return handle.getReturnObject();
                 }
-
-                throw mapException(StringUtils.isEmpty(response.getStatusMessage()) ? response.responseAsString() : response.getStatusMessage(), response.getStatus());
+                String responseAsString = response.responseAsString();
+                throw mapException(StringUtils.isEmpty(responseAsString) ? response.getStatusMessage() : responseAsString, response.getStatus());
             }
 
 

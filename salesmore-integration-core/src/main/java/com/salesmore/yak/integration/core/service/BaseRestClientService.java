@@ -3,11 +3,10 @@ package com.salesmore.yak.integration.core.service;
 import com.google.common.base.Function;
 import com.google.common.base.Joiner;
 import com.salesmore.yak.integration.core.api.exceptions.RestClientBaseException;
+import com.salesmore.yak.integration.core.model.ErrorBaseResponse;
 import com.salesmore.yak.integration.core.model.ModelEntity;
-import com.salesmore.yak.integration.core.transport.HttpExecutor;
-import com.salesmore.yak.integration.core.transport.HttpMethod;
-import com.salesmore.yak.integration.core.transport.HttpRequest;
-import com.salesmore.yak.integration.core.transport.HttpResponse;
+import com.salesmore.yak.integration.core.transport.*;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -173,6 +172,16 @@ public class BaseRestClientService {
             HttpResponse res = HttpExecutor.create().execute(request);
 
             return  res.getEntity(request.getReturnType());
+        }
+
+        public R executeWithErrorResponse() {
+            R response = execute();
+            if( response instanceof ErrorBaseResponse ){
+                ErrorBaseResponse errorBase = (ErrorBaseResponse)response;
+                if(!StringUtils.isEmpty(errorBase.getMsg()) && (null != errorBase.getError()))
+                    throw HttpExceptionHandler.mapException(errorBase);
+            }
+            return response;
         }
 
         public HttpResponse executeWithResponse() {

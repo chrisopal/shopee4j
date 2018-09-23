@@ -2,10 +2,11 @@ package com.salesmore.yak.integration.shopee.model.common;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.salesmore.yak.integration.core.model.Error;
 
-public enum ResponseError {
+public enum ResponseError implements Error {
 
-    UNRECOGNIZED("", ""),
+    ERROR_PARAM("error_param", "There are errors in the input parameters"),
     ERROR_PARAMS("error_params", "There are errors in the input parameters"),
     ERROR_AUTH("error_auth", "The request is not authenticated. Ex: signature is wrong"),
     ERROR_SERVER("error_server", "An error has occurred"),
@@ -21,11 +22,12 @@ public enum ResponseError {
     private String code;
     private String description;
 
+    @Override
     public String code() {
         return this.code;
     }
 
-
+    @Override
     public String description() {
         return this.description;
     }
@@ -34,10 +36,10 @@ public enum ResponseError {
     public static ResponseError value(String v)
     {
         for(ResponseError s :ResponseError.values()){
-            if(s.code().equals(v))
+            if(s.code().equalsIgnoreCase(v))
                 return s;
         }
-        return UNRECOGNIZED;
+        return null;
     }
 
     @JsonValue

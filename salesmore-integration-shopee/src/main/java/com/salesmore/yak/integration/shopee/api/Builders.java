@@ -1,6 +1,7 @@
 package com.salesmore.yak.integration.shopee.api;
 
-import com.salesmore.yak.integration.shopee.model.shop.request.BaseRequest;
+import com.salesmore.yak.integration.shopee.model.BaseRequest;
+import com.salesmore.yak.integration.shopee.model.shop.request.ShopAuth;
 import com.salesmore.yak.integration.shopee.model.shop.request.ShopInfoUpdate;
 
 /**
@@ -12,7 +13,7 @@ public class Builders {
     /**
      * Get Builder to ShopInfo Request
      *
-     * @return article create model builder
+     * @return base request builder
      */
     public static BaseRequest.BaseRequestBuilder baseRequest() { return BaseRequest.builder(); }
 
@@ -20,8 +21,15 @@ public class Builders {
     /**
      * Get Builder to ShopInfo Update creation
      *
-     * @return article create model builder
+     * @return shop info update builder
      */
     public static ShopInfoUpdate.ShopInfoUpdateBuilder shopInfoUpdate() { return ShopInfoUpdate.builder(); }
+
+    /**
+     * Get Builder to Shop Authorization creation
+     *
+     * @return shop auth builder builder
+     */
+    public static ShopAuth.ShopAuthBuilder shopAuth() { return ShopAuth.builder(); }
 
 }

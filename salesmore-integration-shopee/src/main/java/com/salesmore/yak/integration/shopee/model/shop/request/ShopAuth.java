@@ -13,8 +13,12 @@ public class ShopAuth implements ModelEntity {
     /**
      * partner id.
      */
-    protected String id;
+    protected long id;
 
+    /**
+     * partner key
+     */
+    protected String key;
     /**
      * Token Generation Rule:
      *

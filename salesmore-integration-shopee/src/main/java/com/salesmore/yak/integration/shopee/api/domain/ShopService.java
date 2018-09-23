@@ -3,7 +3,7 @@ package com.salesmore.yak.integration.shopee.api.domain;
 import com.salesmore.yak.integration.core.common.RestService;
 import com.salesmore.yak.integration.shopee.model.shop.request.ShopAuth;
 import com.salesmore.yak.integration.shopee.model.shop.response.ShopInfo;
-import com.salesmore.yak.integration.shopee.model.shop.request.BaseRequest;
+import com.salesmore.yak.integration.shopee.model.BaseRequest;
 import com.salesmore.yak.integration.shopee.model.shop.request.ShopInfoUpdate;
 import com.salesmore.yak.integration.shopee.model.shop.response.ShopInfoUpdatedResult;
 import com.salesmore.yak.integration.shopee.model.shop.response.ShopPerformance;

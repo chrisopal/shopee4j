@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 public enum Country {
-    UNRECOGNIZED, MYR, TWD, SGD, PHP, THB, IDR;
+    UNRECOGNIZED, MY, TW, SG, PH, TH, ID;
 
     @JsonCreator
     public static Country value(String v) {
