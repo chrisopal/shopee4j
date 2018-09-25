@@ -6,13 +6,18 @@ import com.salesmore.yak.integration.shopee.constants.PathConstants;
 import com.salesmore.yak.integration.shopee.model.PaginationBaseRequest;
 import com.salesmore.yak.integration.shopee.model.shopcategory.ShopCategory;
 import com.salesmore.yak.integration.shopee.model.shopcategory.request.CategoryItems;
+import com.salesmore.yak.integration.shopee.model.shopcategory.request.ShopCategoryIdRequest;
 import com.salesmore.yak.integration.shopee.model.shopcategory.request.ShopCategoryRequest;
-import com.salesmore.yak.integration.shopee.model.shopcategory.response.CategoryItemIds;
+import com.salesmore.yak.integration.shopee.model.shopcategory.response.CategoryItemId;
 import com.salesmore.yak.integration.shopee.model.shopcategory.response.CategoryItemsAdded;
 import com.salesmore.yak.integration.shopee.model.shopcategory.response.ShopCategories;
 import com.salesmore.yak.integration.shopee.model.shopcategory.response.ShopCategoryIdEntity;
 
+import java.util.List;
+
 import static com.google.common.base.Preconditions.checkNotNull;
+
+import static com.salesmore.yak.integration.shopee.model.shopcategory.response.CategoryItemId.CategoryItemIds;
 
 public class ShopCategoryServiceImpl extends BaseRestClientService implements ShopCategoryService {
 
@@ -23,9 +28,9 @@ public class ShopCategoryServiceImpl extends BaseRestClientService implements Sh
     }
 
     @Override
-    public CategoryItemIds getCategoryItems(ShopCategoryRequest shopCategoryRequest) {
+    public List<CategoryItemId> getCategoryItems(ShopCategoryIdRequest shopCategoryRequest) {
         checkNotNull(shopCategoryRequest);
-        return post(CategoryItemIds.class, uri(PathConstants.SHOP_CATEGORY_GET_ITEMS_RELATEIVE_PATH)).entity(shopCategoryRequest).execute();
+        return post(CategoryItemIds.class, uri(PathConstants.SHOP_CATEGORY_GET_ITEMS_RELATEIVE_PATH)).entity(shopCategoryRequest).execute().getList();
     }
 
     @Override
@@ -47,7 +52,7 @@ public class ShopCategoryServiceImpl extends BaseRestClientService implements Sh
     }
 
     @Override
-    public ShopCategoryIdEntity deleteShopCategory(ShopCategoryRequest shopCategoryRequest) {
+    public ShopCategoryIdEntity deleteShopCategory(ShopCategoryIdRequest shopCategoryRequest) {
         checkNotNull(shopCategoryRequest);
         return post(ShopCategoryIdEntity.class, uri(PathConstants.SHOP_CATEGORY_DELETE_RELATEIVE_PATH)).entity(shopCategoryRequest).execute();
     }

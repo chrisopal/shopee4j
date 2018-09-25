@@ -13,6 +13,7 @@ import java.util.List;
 @ToString(callSuper = true)
 public class VariationAddResult extends ErrorResponse {
 
+	private static final long serialVersionUID = 1L;
     /**
      * Unique identifier for an item.
      */

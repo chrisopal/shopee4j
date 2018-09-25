@@ -6,7 +6,6 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.salesmore.yak.integration.shopee.model.BaseRequest;
-import com.salesmore.yak.integration.shopee.model.item.ItemStatus;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.SuperBuilder;
@@ -15,6 +14,8 @@ import lombok.experimental.SuperBuilder;
 @EqualsAndHashCode(callSuper = true)
 @SuperBuilder
 public class DiscountPaginationRequest extends BaseRequest {
+	
+	private static final long serialVersionUID = 1L;
 
     enum Status {
         UPCOMING, ONGOING, EXPIRED, ALL;

@@ -1,10 +1,8 @@
 package com.salesmore.yak.integration.shopee.model.order.request;
 
 
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonValue;
 import com.salesmore.yak.integration.shopee.model.BaseRequest;
 import com.salesmore.yak.integration.shopee.model.common.OrderStatus;
 import lombok.Data;
@@ -15,6 +13,8 @@ import lombok.experimental.SuperBuilder;
 @EqualsAndHashCode(callSuper = true)
 @SuperBuilder
 public class OrderPaginationRequest extends BaseRequest {
+	
+	private static final long serialVersionUID = 1L;
 
     /**
      * Specifies the starting entry of data to return in the current call.

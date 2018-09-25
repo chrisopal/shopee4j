@@ -19,8 +19,6 @@ public class HttpExecutorServiceImpl implements HttpExecutorService {
 
     private static final String NAME = "OKHttp Connector";
 
-    private static final Logger logger = LoggerFactory.getLogger(HttpExecutorServiceImpl.class);
-
     /**
      * {@inheritDoc}
      */

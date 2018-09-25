@@ -1,13 +1,9 @@
 package com.salesmore.yak.integration.shopee.model.item.request;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.salesmore.yak.integration.shopee.model.IIdRequestBase;
 import lombok.Builder;
 import lombok.Data;
-import lombok.Singular;
-
-import java.util.List;
 
 
 @Data

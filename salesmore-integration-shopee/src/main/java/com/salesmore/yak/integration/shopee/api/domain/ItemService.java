@@ -91,7 +91,7 @@ public interface ItemService extends RestService {
      * @param request base request with minimum parameters
      * @return list of category
      */
-    List<Category> getCategories(BaseRequest request);
+    List<Category> getCategories(ItemBaseRequest request);
 
     /**
      * Get Categories By Country

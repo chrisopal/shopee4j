@@ -6,6 +6,8 @@ import lombok.Data;
 
 @Data
 public class AddressBase implements ModelEntity {
+	
+	private static final long serialVersionUID = 1L;
 
     /**
      * Name for the address.

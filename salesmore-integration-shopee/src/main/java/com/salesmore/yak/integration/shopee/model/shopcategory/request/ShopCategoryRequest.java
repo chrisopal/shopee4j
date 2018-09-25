@@ -2,6 +2,7 @@ package com.salesmore.yak.integration.shopee.model.shopcategory.request;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.salesmore.yak.integration.shopee.model.IIdRequestBase;
 import com.salesmore.yak.integration.shopee.model.common.ShopCategoryStatus;
 import com.salesmore.yak.integration.shopee.model.BaseRequest;
 import lombok.Data;
@@ -13,6 +14,7 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 public class ShopCategoryRequest extends BaseRequest {
 
+	private static final long serialVersionUID = 1L;
     /**
      * ShopCategory's name.
      */

@@ -20,14 +20,13 @@ import java.util.Map;
  */
 public abstract class BaseClientSession<R, T extends AbstractRestClient<T>> implements EndpointTokenProvider {
 
-    private static final Logger LOG = LoggerFactory.getLogger(BaseClientSession.class);
 
     protected static final ThreadLocal<BaseClientSession> sessions = new ThreadLocal<BaseClientSession>();
 
     protected Config config;
     Map<String, Object> headers = new HashMap<String, Object>();
 
-    public static BaseClientSession getCurrent() {
+    public static BaseClientSession<?, ?> getCurrent() {
         return sessions.get();
     }
 

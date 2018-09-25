@@ -20,7 +20,6 @@ public class HttpEntityHandler {
         return handle(response, returnType, Boolean.FALSE);
     }
 
-    @SuppressWarnings("unchecked")
     public static <T> T handle(HttpResponse response, Class<T> returnType, boolean requiresVoidBodyHandling) {
         try {
             Handle<T> handle = Handle.create(response, returnType, requiresVoidBodyHandling);

@@ -10,6 +10,8 @@ import java.util.List;
 
 @Data
 public class ItemResult extends ErrorResponse {
+	
+	private static final long serialVersionUID = 1L;
 
     /**
      * Item Id for the result

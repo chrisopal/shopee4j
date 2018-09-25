@@ -10,6 +10,7 @@ import lombok.ToString;
 @EqualsAndHashCode(callSuper = true)
 public class OrderItemDetail extends OrderItemSimple {
 
+	private static final long serialVersionUID = 1L;
 
     @JsonProperty("item_id")
     private String itemId;

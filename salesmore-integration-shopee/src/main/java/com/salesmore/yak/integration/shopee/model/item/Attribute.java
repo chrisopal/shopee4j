@@ -5,14 +5,12 @@ import com.salesmore.yak.integration.core.model.ModelEntity;
 import com.salesmore.yak.integration.core.service.ListResult;
 import com.salesmore.yak.integration.shopee.model.common.AttributeInputType;
 import com.salesmore.yak.integration.shopee.model.common.AttributeType;
-import lombok.Builder;
 import lombok.Data;
 
 import java.util.List;
 
 
 @Data
-@Builder
 public class Attribute implements ModelEntity {
 
     public static final long serialVersionUID = 1L;

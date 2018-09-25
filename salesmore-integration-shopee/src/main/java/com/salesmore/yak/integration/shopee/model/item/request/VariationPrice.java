@@ -12,6 +12,7 @@ import lombok.experimental.SuperBuilder;
 @ToString(callSuper = true)
 public class VariationPrice extends VariationIdRequest {
 
+	private static final long serialVersionUID = 1L;
     /**
      * Specify the revised price of one variation of the item.
      */

@@ -34,21 +34,24 @@ public class HashingUtils {
     }
 
     public static String hmacDigest(String msg, String keyString, String algorithm) {
-        try {
+    	Formatter formatter = null;
+    	try {
             SecretKeySpec key = new SecretKeySpec((keyString).getBytes(StandardCharsets.UTF_8), algorithm);
             Mac mac = Mac.getInstance(algorithm);
             mac.init(key);
 
             byte[] bytes = mac.doFinal(msg.getBytes(StandardCharsets.US_ASCII));
-
-            Formatter formatter = new Formatter();
+            formatter = new Formatter();
             for (byte b : bytes) {
                 formatter.format("%02x", b);
             }
             return formatter.toString();
         } catch (InvalidKeyException | NoSuchAlgorithmException e) {
             LOGGER.error("Error while get hmac Digest: {}", e.getLocalizedMessage());
-        }
+        }finally {
+			if(formatter != null)
+				formatter.close();
+		}
         return null;
     }
 

@@ -6,13 +6,17 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.salesmore.yak.integration.core.model.ModelEntity;
 import com.salesmore.yak.integration.core.service.ListResult;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 
 @Data
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class Variation implements ModelEntity {
 
     private static final long serialVersionUID = 1L;

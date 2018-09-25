@@ -16,6 +16,8 @@ import java.util.List;
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)
 public class Discount extends BaseRequest {
+	
+	private static final long serialVersionUID = 1L;
 
     /**
      * Shopee's unique identifier for a discount activity.

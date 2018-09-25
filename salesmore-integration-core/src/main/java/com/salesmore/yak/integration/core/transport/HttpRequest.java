@@ -5,8 +5,6 @@ import com.google.common.collect.Maps;
 import com.salesmore.yak.integration.core.constants.ClientConstants;
 import com.salesmore.yak.integration.core.model.ModelEntity;
 import com.salesmore.yak.integration.core.api.EndpointTokenProvider;
-import org.apache.commons.lang3.StringUtils;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;

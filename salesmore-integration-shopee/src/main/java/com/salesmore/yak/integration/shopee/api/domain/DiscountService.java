@@ -4,8 +4,6 @@ import com.salesmore.yak.integration.core.common.RestService;
 import com.salesmore.yak.integration.shopee.model.discount.request.*;
 import com.salesmore.yak.integration.shopee.model.discount.response.*;
 
-import java.util.List;
-
 public interface DiscountService extends RestService {
 
     /**

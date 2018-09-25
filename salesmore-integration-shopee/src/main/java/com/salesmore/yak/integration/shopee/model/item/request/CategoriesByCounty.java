@@ -3,6 +3,7 @@ package com.salesmore.yak.integration.shopee.model.item.request;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.salesmore.yak.integration.core.model.ModelEntity;
 import com.salesmore.yak.integration.shopee.model.common.Country;
+import com.salesmore.yak.integration.shopee.model.item.Language;
 import lombok.Builder;
 import lombok.Data;
 
@@ -31,9 +32,21 @@ public class CategoriesByCounty implements ModelEntity {
     protected long partnerId;
 
     /**
+     * shopid field that must be included in all request body
+     * One partner might have multiple associated shopids, please use the correct shopid.
+     */
+    @JsonProperty("shopid")
+    protected long shopId;
+
+    /**
      * timestamp field that must be included in all request body
      *
      * Please put the current UNIX timestamp when making a request
      */
     protected long timestamp;
+
+    /**
+     * Indicate the translation language.
+     */
+    private Language language;
 }

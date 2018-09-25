@@ -16,7 +16,7 @@ import java.util.List;
 @SuperBuilder
 public class ShopInfoUpdate extends BaseRequest {
 
-    
+	private static final long serialVersionUID = 1L;
     /**
      * Name of the shop.
      */

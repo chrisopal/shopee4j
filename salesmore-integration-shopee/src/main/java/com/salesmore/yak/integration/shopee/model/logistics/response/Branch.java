@@ -13,6 +13,8 @@ import java.util.List;
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)
 public class Branch extends AddressBase {
+	
+	private static final long serialVersionUID = 1L;
 
     @JsonProperty("branch_id")
     private Long branchId;

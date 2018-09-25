@@ -4,11 +4,14 @@ import com.salesmore.yak.integration.core.common.RestService;
 import com.salesmore.yak.integration.shopee.model.PaginationBaseRequest;
 import com.salesmore.yak.integration.shopee.model.shopcategory.ShopCategory;
 import com.salesmore.yak.integration.shopee.model.shopcategory.request.CategoryItems;
+import com.salesmore.yak.integration.shopee.model.shopcategory.request.ShopCategoryIdRequest;
 import com.salesmore.yak.integration.shopee.model.shopcategory.request.ShopCategoryRequest;
-import com.salesmore.yak.integration.shopee.model.shopcategory.response.CategoryItemIds;
+import com.salesmore.yak.integration.shopee.model.shopcategory.response.CategoryItemId;
 import com.salesmore.yak.integration.shopee.model.shopcategory.response.CategoryItemsAdded;
 import com.salesmore.yak.integration.shopee.model.shopcategory.response.ShopCategories;
 import com.salesmore.yak.integration.shopee.model.shopcategory.response.ShopCategoryIdEntity;
+
+import java.util.List;
 
 public interface ShopCategoryService extends RestService {
 
@@ -26,7 +29,7 @@ public interface ShopCategoryService extends RestService {
      * @param shopCategoryRequest shop category request
      * @return retrieved category item ids
      */
-    CategoryItemIds getCategoryItems(ShopCategoryRequest shopCategoryRequest);
+    List<CategoryItemId> getCategoryItems(ShopCategoryIdRequest shopCategoryRequest);
 
     /**
      * Add Shop Category
@@ -58,7 +61,7 @@ public interface ShopCategoryService extends RestService {
      * @param shopCategoryRequest shop category request
      * @return ShopCategoryIdEntity
      */
-    ShopCategoryIdEntity deleteShopCategory(ShopCategoryRequest shopCategoryRequest);
+    ShopCategoryIdEntity deleteShopCategory(ShopCategoryIdRequest shopCategoryRequest);
 
 
 }

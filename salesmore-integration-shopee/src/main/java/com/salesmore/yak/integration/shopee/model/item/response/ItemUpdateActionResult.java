@@ -10,6 +10,7 @@ import lombok.ToString;
 @ToString(callSuper = true)
 public class ItemUpdateActionResult extends ErrorResponse {
 
+	private static final long serialVersionUID = 1L;
     /**
      * Unique identifier for an item.
      */

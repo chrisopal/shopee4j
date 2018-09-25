@@ -1,19 +1,19 @@
 package com.salesmore.yak.integration.shopee.model.item.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.salesmore.yak.integration.core.model.ModelEntity;
 import com.salesmore.yak.integration.shopee.model.item.*;
 import lombok.Data;
 
 import java.util.List;
 
 @Data
-public class ItemInfo {
+public class ItemInfo implements ModelEntity {
 
-    /**
-     * Item Id for the result
-     */
-    @JsonProperty("item_id")
-    private Long id;
+    private static final long serialVersionUID = 1L;
+
+    //@JsonProperty("item_id")
+    //private Long id;
 
     /**
      * shop id of the item

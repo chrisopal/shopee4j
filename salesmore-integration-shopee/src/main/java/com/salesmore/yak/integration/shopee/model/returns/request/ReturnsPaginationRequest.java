@@ -13,6 +13,7 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 public class ReturnsPaginationRequest extends BaseRequest {
 
+	private static final long serialVersionUID = 1L;
     /**
      * Specifies the starting entry of data to return in the current call.
      * Default is 0. if data is more than one page, the offset can be some entry to start next call.

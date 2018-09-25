@@ -3,13 +3,11 @@ package com.salesmore.yak.integration.shopee.model.item;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.salesmore.yak.integration.core.model.ModelEntity;
 import com.salesmore.yak.integration.core.service.ListResult;
-import lombok.Builder;
 import lombok.Data;
 
 import java.util.List;
 
 @Data
-@Builder
 public class Category implements ModelEntity {
 
     private static final long serialVersionUID = 1L;

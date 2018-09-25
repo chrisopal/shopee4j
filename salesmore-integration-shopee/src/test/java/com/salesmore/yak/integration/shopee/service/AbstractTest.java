@@ -1,6 +1,9 @@
 package com.salesmore.yak.integration.shopee.service;
 
+import com.salesmore.yak.integration.shopee.api.Builders;
 import com.salesmore.yak.integration.shopee.api.ShopeeClient;
+import com.salesmore.yak.integration.shopee.model.PaginationBaseRequest;
+import com.salesmore.yak.integration.shopee.model.PaginationBaseRequest.PaginationBaseRequestBuilder;
 import com.salesmore.yak.integration.shopee.service.client.ShopeeClientFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,5 +25,16 @@ public class AbstractTest {
 
     protected ShopeeClient client() {
         return shopeeClient;
+    }
+
+    @SuppressWarnings("rawtypes")
+	public static PaginationBaseRequest paginationBaseRequest() {
+        return ((PaginationBaseRequestBuilder) Builders.paginationBaseRequest()
+                .partnerId(PARTNER_ID)
+                .shopId(SHOP_ID)
+                .timestamp(System.currentTimeMillis()/1000))
+                .paginationEntriesPerPage(10L)
+                .paginationOffset(0)
+                .build();
     }
 }

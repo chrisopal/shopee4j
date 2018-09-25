@@ -26,7 +26,7 @@ public class PathConstants {
 
     //============================== Shop Category==========================================
 
-    public static final String SHOP_CATEGORY_ADD_ITEMS_RELATEIVE_PATH = "/shop_category/add/item";
+    public static final String SHOP_CATEGORY_ADD_ITEMS_RELATEIVE_PATH = "/shop_category/add/items";
 
     public static final String SHOP_CATEGORY_DELETE_RELATEIVE_PATH = "/shop_category/delete";
 

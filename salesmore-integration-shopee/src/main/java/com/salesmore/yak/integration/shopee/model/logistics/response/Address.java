@@ -14,6 +14,8 @@ import java.util.List;
 @ToString(callSuper = true)
 public class Address extends AddressBase {
 
+	
+	private static final long serialVersionUID = 1L;
     /**
      * The identity of address
      */

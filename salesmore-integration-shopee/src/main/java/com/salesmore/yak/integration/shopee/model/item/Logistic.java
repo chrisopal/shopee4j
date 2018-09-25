@@ -4,11 +4,15 @@ package com.salesmore.yak.integration.shopee.model.item;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.salesmore.yak.integration.core.model.ModelEntity;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class Logistic implements ModelEntity {
 
     public static final long serialVersionUID = 1L;
@@ -16,6 +20,7 @@ public class Logistic implements ModelEntity {
     /**
      * related to shopee.logistics.GetLogistics result.logistics.logistic_id
      */
+    @JsonInclude(JsonInclude.Include.NON_DEFAULT)
     @JsonProperty("logistic_id")
     private Long id;
 

@@ -15,6 +15,8 @@ import lombok.ToString;
 @ToString(callSuper = true)
 public class ShopInfoUpdatedResult extends ShopInfoBase implements ErrorBaseResponse {
 
+	private static final long serialVersionUID = 1L;
+	
     private String msg;
 
     private ResponseError error;

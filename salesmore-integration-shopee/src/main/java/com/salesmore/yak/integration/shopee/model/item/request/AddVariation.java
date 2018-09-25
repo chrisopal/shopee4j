@@ -16,6 +16,8 @@ import java.util.List;
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)
 public class AddVariation extends BaseRequest {
+	
+	private static final long serialVersionUID = 1L;
 
     /**
      * Unique identifier for an item.

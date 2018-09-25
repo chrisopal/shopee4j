@@ -28,7 +28,7 @@ public class ItemServiceImpl extends BaseRestClientService implements ItemServic
     @Override
     public ItemResult addItem(Item item) {
         checkNotNull(item);
-        checkArgument( item.getCategoryId() !=null && StringUtils.isEmpty(item.getName()));
+        checkArgument( item.getCategoryId() !=null && !StringUtils.isEmpty(item.getName()));
         return post(ItemResult.class, uri(ITEM_ADD_RELATIVE_PATH)).entity(item).executeWithErrorResponse();
     }
 
@@ -118,7 +118,7 @@ public class ItemServiceImpl extends BaseRestClientService implements ItemServic
     }
 
     @Override
-    public List<Category> getCategories(BaseRequest request) {
+    public List<Category> getCategories(ItemBaseRequest request) {
         checkNotNull(request);
         return post(Categories.class, uri(ITEM_CATEGORY_GET_PATH)).entity(request).execute().getList();
     }

@@ -12,6 +12,7 @@ import lombok.experimental.SuperBuilder;
 @ToString(callSuper = true)
 public class VariationStock extends VariationIdRequest {
 
+	private static final long serialVersionUID = 1L;
     /**
      * Specify the updated stock quantity.
      */

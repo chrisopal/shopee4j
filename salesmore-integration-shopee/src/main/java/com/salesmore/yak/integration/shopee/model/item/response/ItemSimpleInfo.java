@@ -1,9 +1,6 @@
 package com.salesmore.yak.integration.shopee.model.item.response;
 
-
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonValue;
 import com.salesmore.yak.integration.core.model.ModelEntity;
 import com.salesmore.yak.integration.shopee.model.item.ItemStatus;
 import com.salesmore.yak.integration.shopee.model.item.Variation;

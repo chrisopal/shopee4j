@@ -9,8 +9,6 @@ public class Credentials extends Auth implements AuthStore {
 
     private static final long serialVersionUID = 1L;
 
-    private PasswordCredentials passwordCreds = new PasswordCredentials();
-
     public Credentials() {
         super(Type.CREDENTIALS);
     }

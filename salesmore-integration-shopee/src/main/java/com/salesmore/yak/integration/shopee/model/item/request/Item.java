@@ -18,6 +18,7 @@ import java.util.List;
 @SuperBuilder
 public class Item extends BaseRequest {
 
+	private static final long serialVersionUID = 1L;
     /**
      * Id of the Item
      */
@@ -61,6 +62,7 @@ public class Item extends BaseRequest {
     /**
      * The variation of item is to list out all models of this product
      */
+    @Singular
     private List<Variation> variations;
 
     /**
@@ -108,6 +110,7 @@ public class Item extends BaseRequest {
     /**
      *
      */
+    @JsonInclude(JsonInclude.Include.NON_DEFAULT)
     @JsonProperty("days_to_ship")
     private long daysToShip;
 
@@ -115,6 +118,7 @@ public class Item extends BaseRequest {
      * The wholesales tier list. Please put the wholesale tier info in order by min count.
      */
     @Singular
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private List<WholeSale> wholesales;
     /**
      * Url of size chart image. Only particular categories support it.

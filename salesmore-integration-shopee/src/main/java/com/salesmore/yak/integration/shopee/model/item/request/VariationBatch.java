@@ -17,6 +17,7 @@ import java.util.List;
 @ToString(callSuper = true)
 public class VariationBatch extends BaseRequest {
 
+	private static final long serialVersionUID = 1L;
     /**
      * The variation of item is to list out all models of this product
      */
