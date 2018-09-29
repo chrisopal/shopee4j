@@ -2,7 +2,7 @@ package com.salesmore.yak.integration.shopee.model.logistics.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.salesmore.yak.integration.core.model.ModelEntity;
-import com.salesmore.yak.integration.core.service.ObjectResult;
+import com.salesmore.yak.integration.shopee.model.ObjectResult;
 import com.salesmore.yak.integration.shopee.model.order.response.RecipientAddress;
 import lombok.Data;
 

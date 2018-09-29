@@ -2,25 +2,22 @@ package com.salesmore.yak.integration.shopee.service.domain;
 
 import com.salesmore.yak.integration.core.service.BaseRestClientService;
 import com.salesmore.yak.integration.shopee.api.domain.ItemService;
-import com.salesmore.yak.integration.shopee.model.BaseRequest;
 import com.salesmore.yak.integration.shopee.model.PaginationBaseRequest;
 import com.salesmore.yak.integration.shopee.model.item.Attribute;
 import com.salesmore.yak.integration.shopee.model.item.Category;
-import com.salesmore.yak.integration.shopee.model.item.request.*;
-
-
-import static com.google.common.base.Preconditions.checkArgument;
-import static com.salesmore.yak.integration.shopee.constants.PathConstants.*;
-import static com.salesmore.yak.integration.shopee.model.item.Attribute.Attributes;
 import com.salesmore.yak.integration.shopee.model.item.Category.Categories;
+import com.salesmore.yak.integration.shopee.model.item.request.*;
 import com.salesmore.yak.integration.shopee.model.item.response.*;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.List;
 
+import static com.google.common.base.Preconditions.checkArgument;
 import static com.google.common.base.Preconditions.checkNotNull;
-import static com.salesmore.yak.integration.shopee.model.item.response.VariationBatchResult.VariationBatchesResult;
+import static com.salesmore.yak.integration.shopee.constants.PathConstants.*;
+import static com.salesmore.yak.integration.shopee.model.item.Attribute.Attributes;
 import static com.salesmore.yak.integration.shopee.model.item.response.ItemBatchResult.ItemUpdateBatchesResult;
+import static com.salesmore.yak.integration.shopee.model.item.response.VariationBatchResult.VariationBatchesResult;
 
 
 public class ItemServiceImpl extends BaseRestClientService implements ItemService{
@@ -40,10 +37,10 @@ public class ItemServiceImpl extends BaseRestClientService implements ItemServic
     }
 
     @Override
-    public ItemResult getItemDetail(ItemIdRequest idRequest) {
+    public ItemInfo getItemDetail(ItemIdRequest idRequest) {
         checkNotNull(idRequest);
         checkNotNull(idRequest.getId());
-        return post(ItemResult.class, uri(ITEM_GET_DETAIL_RELATIVE_PATH)).entity(idRequest).execute();
+        return post(ItemDetail.class, uri(ITEM_GET_DETAIL_RELATIVE_PATH)).entity(idRequest).execute().get(ItemInfo.class);
     }
 
     @Override
@@ -60,17 +57,17 @@ public class ItemServiceImpl extends BaseRestClientService implements ItemServic
     }
 
     @Override
-    public ItemActionResultWrapper updateItemPrice(ItemPrice itemPrice) {
+    public ItemUpdateActionResult updateItemPrice(ItemPrice itemPrice) {
         checkNotNull(itemPrice);
         checkArgument(itemPrice.getPrice() != 0);
-        return post(ItemActionResultWrapper.class, uri(ITEM_UPDATE_PRICE_RELATIVE_PATH)).entity(itemPrice).execute();
+        return post(ItemActionResultWrapper.class, uri(ITEM_UPDATE_PRICE_RELATIVE_PATH)).entity(itemPrice).execute().get(ItemUpdateActionResult.class);
     }
 
     @Override
-    public ItemActionResultWrapper updateItemStock(ItemStock itemStock) {
+    public ItemUpdateActionResult updateItemStock(ItemStock itemStock) {
         checkNotNull(itemStock);
         checkArgument(itemStock.getStock() != null);
-        return post(ItemActionResultWrapper.class, uri(ITEM_UPDATE_STOCK_RELATIVE_PATH)).entity(itemStock).execute();
+        return post(ItemActionResultWrapper.class, uri(ITEM_UPDATE_STOCK_RELATIVE_PATH)).entity(itemStock).execute().get(ItemUpdateActionResult.class);
 
     }
 
@@ -107,7 +104,7 @@ public class ItemServiceImpl extends BaseRestClientService implements ItemServic
     public ItemImagesResult insertItemImage(ItemImageInsert imageInsert) {
         checkNotNull(imageInsert);
         checkArgument(imageInsert.getPosition() != null && !StringUtils.isEmpty(imageInsert.getImage()));
-        return post(ItemImagesResult.class, uri(ITEM_IMAGE_ADD_RELATIVE_PATH)).entity(imageInsert).executeWithErrorResponse();
+        return post(ItemImagesResult.class, uri(ITEM_IMAGE_INSERT_RELATIVE_PATH)).entity(imageInsert).executeWithErrorResponse();
     }
 
     @Override
@@ -140,23 +137,23 @@ public class ItemServiceImpl extends BaseRestClientService implements ItemServic
     @Override
     public VariationActionResult deleteVariation(VariationIdRequest idRequest) {
         checkNotNull(idRequest);
-        checkArgument(idRequest.getVariationId() != null);
+        checkArgument(idRequest.getId() != null);
         return post(VariationActionResult.class, uri(ITEM_VARIATIONS_DELETE_RELATIVE_PATH)).entity(idRequest).execute();
     }
 
     @Override
-    public VariationActionResultWrapper updateVariationPrice(VariationPrice variationPrice) {
+    public VariationActionResult updateVariationPrice(VariationPrice variationPrice) {
         checkNotNull(variationPrice);
-        checkArgument(variationPrice.getVariationId() != null);
-        return post(VariationActionResultWrapper.class, uri(ITEM_VARIATIONS_UPDATE_PRICE_PATH)).entity(variationPrice).execute();
+        checkArgument(variationPrice.getId() != null);
+        return post(VariationActionResultWrapper.class, uri(ITEM_VARIATIONS_UPDATE_PRICE_PATH)).entity(variationPrice).execute().get(VariationActionResult.class);
 
     }
 
     @Override
-    public VariationActionResultWrapper updateVariationStock(VariationStock variationStock) {
+    public VariationActionResult updateVariationStock(VariationStock variationStock) {
         checkNotNull(variationStock);
-        checkArgument(variationStock.getVariationId() != null);
-        return post(VariationActionResultWrapper.class, uri(ITEM_VARIATIONS_UPDATE_STOCK_PATH)).entity(variationStock).execute();
+        checkArgument(variationStock.getId() != null);
+        return post(VariationActionResultWrapper.class, uri(ITEM_VARIATIONS_UPDATE_STOCK_PATH)).entity(variationStock).execute().get(VariationActionResult.class);
 
     }
 
@@ -172,6 +169,5 @@ public class ItemServiceImpl extends BaseRestClientService implements ItemServic
         checkNotNull(variationBatch);
         checkNotNull(variationBatch.getVariations());
         return post(VariationBatchesResult.class, uri(ITEM_VARIATIONS_BATCH_UPDATE_STOCK_PATH)).entity(variationBatch).executeWithErrorResponse().getList();
-
     }
 }

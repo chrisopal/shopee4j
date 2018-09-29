@@ -19,6 +19,11 @@ public class Branch extends AddressBase {
     @JsonProperty("branch_id")
     private Long branchId;
 
+    /**
+     * The address description of specify address
+     */
+    private String address;
+
     @Data
     public static class Branches extends ListResult<Branch> {
 

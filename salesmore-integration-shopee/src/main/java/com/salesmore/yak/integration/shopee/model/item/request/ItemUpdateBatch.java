@@ -4,10 +4,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.salesmore.yak.integration.shopee.model.BaseRequest;
 import com.salesmore.yak.integration.shopee.model.item.Variation;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.Singular;
-import lombok.ToString;
+import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 import java.util.List;
@@ -27,6 +24,7 @@ public class ItemUpdateBatch extends BaseRequest {
     List<ItemUpdate> items;
 
     @Data
+    @Builder
     public static class ItemUpdate {
 
         @JsonProperty("item_id")

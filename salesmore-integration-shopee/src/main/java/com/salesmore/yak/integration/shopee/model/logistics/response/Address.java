@@ -29,6 +29,11 @@ public class Address extends AddressBase {
     @JsonProperty("time_slot_list")
     private List<PickupTime> timeSlotList;
 
+    /**
+     * The address description of specify address
+     */
+    private String address;
+
     @Data
     public static class Addresses extends ListResult<Address> {
 

@@ -47,15 +47,14 @@ public class HttpEntityHandler {
 
     private static <T> Handle<T> handle404(Handle<T> handle) {
         if (handle.getResponse().getStatus() == 404) {
-
-            if (ListType.class.isAssignableFrom(handle.getReturnType())) {
+            if (ListType.class.isAssignableFrom(handle.getReturnType()) ||
+                    ObjectType.class.isAssignableFrom(handle.getReturnType())) {
                 try {
                     return handle.complete(handle.getReturnType().newInstance());
                 } catch (InstantiationException | IllegalAccessException e) {
                     LOG.error(e.getMessage(), e);
                 }
             }
-
         }
 
         return handle.continueHandling();

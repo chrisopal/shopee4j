@@ -34,7 +34,7 @@ public interface ItemService extends RestService {
      * @param idRequest item it to get
      * @return item result
      */
-    ItemResult getItemDetail(ItemIdRequest idRequest);
+    ItemInfo getItemDetail(ItemIdRequest idRequest);
 
 
     /**
@@ -107,7 +107,7 @@ public interface ItemService extends RestService {
      * @param itemPrice item price to update
      * @return action result
      */
-    ItemActionResultWrapper updateItemPrice(ItemPrice itemPrice);
+    ItemUpdateActionResult updateItemPrice(ItemPrice itemPrice);
 
     /**
      * Update Item Stock
@@ -115,7 +115,7 @@ public interface ItemService extends RestService {
      * @param itemStock item stock to update
      * @return action result
      */
-    ItemActionResultWrapper updateItemStock(ItemStock itemStock);
+    ItemUpdateActionResult updateItemStock(ItemStock itemStock);
 
     /**
      * Update Item Price Batch
@@ -155,7 +155,7 @@ public interface ItemService extends RestService {
      * @param variationPrice variation price
      * @return
      */
-    VariationActionResultWrapper updateVariationPrice(VariationPrice variationPrice);
+    VariationActionResult updateVariationPrice(VariationPrice variationPrice);
 
     /**
      * Update Variation Stock
@@ -163,13 +163,13 @@ public interface ItemService extends RestService {
      * @param variationStock variation stock
      * @return action result
      */
-    VariationActionResultWrapper updateVariationStock(VariationStock variationStock);
+    VariationActionResult updateVariationStock(VariationStock variationStock);
 
     /**
      * Update VariationPrice Batch
      *
      * @param variationBatch batch request
-     * @return list of batch result
+     * @return batch result
      */
     List<VariationBatchResult> updateVariationPriceBatch(VariationBatch variationBatch);
 
@@ -177,7 +177,7 @@ public interface ItemService extends RestService {
      * Update VariationStock Batch
      *
      * @param variationBatch batch request
-     * @return list of batch result
+     * @return batch result
      */
     List<VariationBatchResult> updateVariationStockBatch(VariationBatch variationBatch);
 }

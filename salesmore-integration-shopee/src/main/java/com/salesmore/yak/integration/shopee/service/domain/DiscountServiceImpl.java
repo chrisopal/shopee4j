@@ -39,7 +39,7 @@ public class DiscountServiceImpl extends BaseRestClientService implements Discou
     @Override
     public DiscountItemActionResult deleteDiscountItem(DiscountItemIdRequest itemIdRequest) {
         checkNotNull(itemIdRequest);
-        checkArgument(itemIdRequest.getId() != null && itemIdRequest.getDiscountId() != null && itemIdRequest.getVariationId() != null);
+        checkArgument(itemIdRequest.getId() != null && itemIdRequest.getDiscountId() != null);
         return post(DiscountItemActionResult.class,uri(DISCOUNT_ITEM_DELETE_RELATIVE_PATH)).entity(itemIdRequest).execute();
 
     }

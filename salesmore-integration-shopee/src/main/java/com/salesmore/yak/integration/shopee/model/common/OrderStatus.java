@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 public enum OrderStatus {
 
-    UNRECOGNIZED, REQUESTED, ACCEPTED, CANCELLED, JUDGING, REFUND_PAID, CLOSED, PROCESSING, SELLER_DISPUTE;
+    UNRECOGNIZED, UNPAID, READY_TO_SHIP, RETRY_SHIP, SHIPPED, TO_CONFIRM_RECEIVE, IN_CANCEL, CANCELLED, TO_RETURN, COMPLETED;
 
     @JsonCreator
     public static OrderStatus value(String v) {

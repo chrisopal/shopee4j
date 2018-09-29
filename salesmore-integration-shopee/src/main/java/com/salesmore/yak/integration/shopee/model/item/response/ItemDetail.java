@@ -1,23 +1,20 @@
 package com.salesmore.yak.integration.shopee.model.item.response;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.salesmore.yak.integration.shopee.model.ObjectResult;
 import lombok.Data;
 
-
 @Data
-public class VariationActionResultWrapper extends ObjectResult<VariationActionResult> {
+public class ItemDetail extends ObjectResult<ItemInfo> {
 
     private static final long serialVersionUID = 1L;
 
     /**
-     * Result
+     * Detailed Item info
      */
-    @JsonProperty("item")
-    private VariationActionResult item;
+    private ItemInfo item;
 
     @Override
-    protected VariationActionResult value() {
+    protected ItemInfo value() {
         return item;
     }
 }

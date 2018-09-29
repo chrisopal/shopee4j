@@ -21,13 +21,13 @@ public class VariationIdRequest implements IIdRequestBase {
      * Unique identifier for an item.
      */
     @JsonProperty("item_id")
-    private Long id;
+    private Long itemId;
 
     /**
      * Shopee's unique identifier for a variation of an item.
      */
     @JsonProperty("variation_id")
-    private Long variationId;
+    private Long id;
 
     /**
      * partner Id field that must be included in all request body

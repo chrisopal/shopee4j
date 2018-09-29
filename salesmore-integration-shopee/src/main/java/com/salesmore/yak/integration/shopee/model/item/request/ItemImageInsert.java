@@ -21,11 +21,13 @@ public class ItemImageInsert implements IIdRequestBase {
     /**
      * Image Url to insert
      */
+    @JsonProperty("image_url")
     String image;
 
     /**
      * Image position of the Item to Insert
      */
+    @JsonProperty("image_position")
     Integer position;
 
     /**

@@ -35,8 +35,8 @@ public class CategoriesByCounty implements ModelEntity {
      * shopid field that must be included in all request body
      * One partner might have multiple associated shopids, please use the correct shopid.
      */
-    @JsonProperty("shopid")
-    protected long shopId;
+    //@JsonProperty("shopid")
+    //protected long shopId;
 
     /**
      * timestamp field that must be included in all request body

@@ -1,6 +1,7 @@
 package com.salesmore.yak.integration.shopee.model.order.request;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.salesmore.yak.integration.shopee.model.item.ItemStatus;
@@ -14,7 +15,7 @@ public class OrderCancellation implements IOrderRequestBase {
 
     public static final long serialVersionUID = 1L;
 
-    enum CancelReason {
+    public enum CancelReason {
         OUT_OF_STOCK, CUSTOMER_REQUEST, UNDELIVERABLE_AREA, COD_NOT_SUPPORTED;
 
         @JsonCreator
@@ -50,12 +51,14 @@ public class OrderCancellation implements IOrderRequestBase {
     /**
      * Shopee's unique identifier for a discount item.
      */
+    @JsonInclude(JsonInclude.Include.NON_DEFAULT)
     @JsonProperty("Item_id")
     private Long itemId;
 
     /**
      * Shopee's unique identifier for a variation of an item.
      */
+    @JsonInclude(JsonInclude.Include.NON_DEFAULT)
     @JsonProperty("variation_id")
     private Long variationId;
 

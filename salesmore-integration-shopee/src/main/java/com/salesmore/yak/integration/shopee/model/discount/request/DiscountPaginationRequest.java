@@ -17,7 +17,7 @@ public class DiscountPaginationRequest extends BaseRequest {
 	
 	private static final long serialVersionUID = 1L;
 
-    enum Status {
+    public enum Status {
         UPCOMING, ONGOING, EXPIRED, ALL;
 
         @JsonCreator

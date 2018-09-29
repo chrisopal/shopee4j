@@ -178,7 +178,7 @@ public class BaseRestClientService {
             R response = execute();
             if( response instanceof ErrorBaseResponse ){
                 ErrorBaseResponse errorBase = (ErrorBaseResponse)response;
-                if(!StringUtils.isEmpty(errorBase.getMsg()) && (null != errorBase.getError()))
+                if( null != errorBase.getError() )
                     throw HttpExceptionHandler.mapException(errorBase);
             }
             return response;

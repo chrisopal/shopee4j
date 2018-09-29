@@ -4,9 +4,13 @@ import com.salesmore.yak.integration.shopee.api.Builders;
 import com.salesmore.yak.integration.shopee.api.ShopeeClient;
 import com.salesmore.yak.integration.shopee.model.PaginationBaseRequest;
 import com.salesmore.yak.integration.shopee.model.PaginationBaseRequest.PaginationBaseRequestBuilder;
+import com.salesmore.yak.integration.shopee.model.order.request.OrderPaginationRequest;
+import com.salesmore.yak.integration.shopee.model.order.response.OrderBasics;
 import com.salesmore.yak.integration.shopee.service.client.ShopeeClientFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.util.List;
 
 public class AbstractTest {
 
@@ -23,7 +27,7 @@ public class AbstractTest {
 
     private static final ShopeeClient shopeeClient = ShopeeClientFactory.newClient(PARTNER_ID, PARTNER_KEY, SHOP_ID, TEST_SERVER_ENDPOINT);
 
-    protected ShopeeClient client() {
+    protected static ShopeeClient client() {
         return shopeeClient;
     }
 
@@ -36,5 +40,24 @@ public class AbstractTest {
                 .paginationEntriesPerPage(10L)
                 .paginationOffset(0)
                 .build();
+    }
+
+
+    public static OrderPaginationRequest orderPaginationRequest() throws Exception{
+        return OrderPaginationRequest.builder()
+                .partnerId(PARTNER_ID)
+                .shopId(SHOP_ID)
+                .timestamp(System.currentTimeMillis()/1000)
+                .createTimeFrom(System.currentTimeMillis()/1000-10*24*60*60)
+                .createTimeTo(System.currentTimeMillis()/1000+2*24*60*60)
+                .paginationEntriesPerPage(10L)
+                .paginationOffset(0)
+                .build();
+    }
+
+    public static List<OrderBasics> getOrderList() throws Exception{
+        //Get Order List
+        OrderBasics.OrderBasicsList orders = client().order().getOrderList(orderPaginationRequest());
+        return orders.getList();
     }
 }

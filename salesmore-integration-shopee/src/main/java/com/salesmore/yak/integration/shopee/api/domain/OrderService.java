@@ -2,7 +2,7 @@ package com.salesmore.yak.integration.shopee.api.domain;
 
 import com.salesmore.yak.integration.core.common.RestService;
 import com.salesmore.yak.integration.shopee.model.order.request.*;
-import com.salesmore.yak.integration.shopee.model.order.response.EscrowDetails;
+import com.salesmore.yak.integration.shopee.model.order.response.EscrowDetail;
 import com.salesmore.yak.integration.shopee.model.order.response.OrderActionResult;
 import com.salesmore.yak.integration.shopee.model.order.response.OrderDetails;
 
@@ -35,7 +35,7 @@ public interface OrderService extends RestService {
      * @param idRequest id request
      * @return escrow details
      */
-    EscrowDetails getEscrowDetails(OrderIdRequest idRequest);
+    EscrowDetail getEscrowDetails(OrderIdRequest idRequest);
 
     /**
      *

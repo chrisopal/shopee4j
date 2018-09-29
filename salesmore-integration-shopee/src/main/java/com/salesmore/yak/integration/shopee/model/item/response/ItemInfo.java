@@ -12,8 +12,8 @@ public class ItemInfo implements ModelEntity {
 
     private static final long serialVersionUID = 1L;
 
-    //@JsonProperty("item_id")
-    //private Long id;
+    @JsonProperty("item_id")
+    private Long id;
 
     /**
      * shop id of the item
@@ -173,5 +173,11 @@ public class ItemInfo implements ModelEntity {
      * This indicates whether the item is secondhand.
      */
     private String condition;
+
+    /**
+     * The id of discount activity the item is currently in.
+     * One item can only have one discount at a time.
+     */
+    private Long discountId;
 
 }

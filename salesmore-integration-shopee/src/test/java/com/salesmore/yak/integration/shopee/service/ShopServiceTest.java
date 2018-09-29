@@ -48,10 +48,9 @@ public class ShopServiceTest extends AbstractTest {
 
     private ShopInfoUpdate shopInfoUpdate() {
     	BaseRequest baseRequest = client().baseRequest();
-    	return ((ShopInfoUpdateBuilder) Builders.shopInfoUpdate()
-    			.timestamp(baseRequest.getTimestamp())
+    	return ShopInfoUpdate.builder().timestamp(baseRequest.getTimestamp())
     			.shopId(baseRequest.getShopId())
-    			.partnerId(baseRequest.getPartnerId()))
+    			.partnerId(baseRequest.getPartnerId())
     			.shopName("uatsellercenter.sg")
     			.shopDescription("This is a test shop with right ok")
     			.image("http://gtms01.alicdn.com/tps/i1/TB1wKlhFVXXXXcdaXXXEPxnHXXX-170-90.png")

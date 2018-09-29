@@ -27,11 +27,13 @@ public class DiscountSimpleInfo implements ModelEntity {
     /**
      * The time when discount activity start.
      */
+    @JsonProperty("start_time")
     private Long startTime;
 
     /**
      * The time when discount activity end. The end time must be 1 hour later than start time.
      */
+    @JsonProperty("end_time")
     private Long endTime;
 
     @Data

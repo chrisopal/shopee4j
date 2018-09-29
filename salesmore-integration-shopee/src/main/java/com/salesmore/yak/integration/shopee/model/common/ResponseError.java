@@ -12,7 +12,8 @@ public enum ResponseError implements Error {
     ERROR_SERVER("error_server", "An error has occurred"),
     ERROR_TOO_MANY_REQUEST("error_too_many_request", "Too many request.Exceed 1000 request per min will be banned for an hour"),
     ERROR_NOT_SUPPORT("error_not_support", "Not support action"),
-    ERROR_INNER_ERROR("error_inner_error", "An inner error has occurred");
+    ERROR_INNER_ERROR("error_inner_error", "An inner error has occurred"),
+    ERROR_PERMISSION("error_permission", "Not allowed for this request");
 
     ResponseError(String code, String description) {
         this.code = code;

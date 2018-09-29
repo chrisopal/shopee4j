@@ -1,5 +1,6 @@
 package com.salesmore.yak.integration.shopee.model.discount.request;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.salesmore.yak.integration.shopee.model.IIdRequestBase;
 import lombok.Builder;
@@ -16,7 +17,7 @@ public class DiscountItemIdRequest implements IIdRequestBase {
     /**
      * Shopee's unique identifier for a discount item.
      */
-    @JsonProperty("Item_id")
+    @JsonProperty("item_id")
     private Long id;
 
     /**
@@ -28,6 +29,7 @@ public class DiscountItemIdRequest implements IIdRequestBase {
     /**
      * Shopee's unique identifier for a variation of an item.
      */
+    @JsonInclude(JsonInclude.Include.NON_DEFAULT)
     @JsonProperty("variation_id")
     private Long variationId;
 

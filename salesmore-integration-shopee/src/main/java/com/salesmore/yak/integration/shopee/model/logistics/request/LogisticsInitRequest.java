@@ -1,5 +1,6 @@
 package com.salesmore.yak.integration.shopee.model.logistics.request;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.salesmore.yak.integration.shopee.model.logistics.request.internal.Dropoff;
 import com.salesmore.yak.integration.shopee.model.logistics.request.internal.NonIntegrated;
@@ -30,12 +31,14 @@ public class LogisticsInitRequest implements IOrderRequestBase {
      * Required parameter ONLY if GetParameterForInit returns "dropoff"
      * or if GetLogisticsInfo returns "dropoff" under "info_needed" for the same order.
      */
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private Dropoff dropoff;
 
     /**
      * Required parameter ONLY if GetParameterForInit returns "non-integrated"
      * or if GetLogisticsInfo returns "non-integrated" under "info_needed" for the same order.
      */
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     @JsonProperty("non_integrated")
     private NonIntegrated nonIntegrated;
 

@@ -61,7 +61,7 @@ public class PathConstants {
 
     public static final String ITEM_VARIATIONS_UPDATE_PRICE_PATH = "/items/update_variation_price";
 
-    public static final String ITEM_VARIATIONS_UPDATE_STOCK_PATH = "/items/update_variation_price";
+    public static final String ITEM_VARIATIONS_UPDATE_STOCK_PATH = "/items/update_variation_stock";
 
     public static final String ITEM_VARIATIONS_BATCH_UPDATE_PRICE_PATH = "/items/update/vars_price";
 
@@ -76,6 +76,8 @@ public class PathConstants {
     public static final String ITEM_BATCH_UPDATE_STOCK_PATH = "/items/update/items_stock";
 
     public static final String ITEM_IMAGE_ADD_RELATIVE_PATH = "/item/img/add";
+
+    public static final String ITEM_IMAGE_INSERT_RELATIVE_PATH = "/item/img/insert";
 
     public static final String ITEM_IMAGE_DELETE_RELATIVE_PATH = "/item/img/delete";
 

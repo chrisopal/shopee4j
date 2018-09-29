@@ -47,6 +47,7 @@ public class Discount extends BaseRequest {
     /**
      * All Items
      */
+    @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @Singular
     private List<DiscountItem> items;
 }
