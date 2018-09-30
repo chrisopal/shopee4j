@@ -22,7 +22,7 @@ public class ReturnsServiceImpl extends BaseRestClientService implements Returns
     public ReturnActionResult confirmReturn(ReturnsIdRequest idRequest) {
         checkNotNull(idRequest);
         checkNotNull(idRequest.getReturnsn());
-        return post(ReturnActionResult.class, uri(RETURNS_CONFIRM_RELATIVE_PATH)).entity(idRequest).execute();
+        return post(ReturnActionResult.class, uri(RETURNS_CONFIRM_RELATIVE_PATH)).entity(idRequest).executeWithErrorResponse();
     }
 
     @Override

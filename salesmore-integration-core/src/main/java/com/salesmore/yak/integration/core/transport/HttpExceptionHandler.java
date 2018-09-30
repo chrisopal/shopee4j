@@ -4,6 +4,7 @@ import com.salesmore.yak.integration.core.api.exceptions.AuthenticationException
 import com.salesmore.yak.integration.core.api.exceptions.ClientResponseException;
 import com.salesmore.yak.integration.core.api.exceptions.ResponseException;
 import com.salesmore.yak.integration.core.api.exceptions.ServerResponseException;
+import com.salesmore.yak.integration.core.constants.ResponseCodes;
 import com.salesmore.yak.integration.core.model.ErrorBaseResponse;
 import org.apache.commons.lang3.StringUtils;
 
@@ -52,7 +53,7 @@ public class HttpExceptionHandler {
      * @return the response exceptions
      */
     public static ResponseException mapException(ErrorBaseResponse errorBaseResponse) {
-        return new ResponseException(StringUtils.isEmpty(errorBaseResponse.getMsg()) ? String.format("%s:%s", errorBaseResponse.getError().code(), errorBaseResponse.getError().description()) : errorBaseResponse.getMsg(), 500 );
+        return new ResponseException(StringUtils.isEmpty(errorBaseResponse.getMsg()) ? String.format("%s:%s", errorBaseResponse.getError().code(), errorBaseResponse.getError().description()) : errorBaseResponse.getMsg(), ResponseCodes.BAD_REQUEST);
     }
     
 }

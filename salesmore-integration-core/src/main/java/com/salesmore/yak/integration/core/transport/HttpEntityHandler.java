@@ -1,5 +1,6 @@
 package com.salesmore.yak.integration.core.transport;
 
+import com.salesmore.yak.integration.core.constants.ResponseCodes;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,7 +25,7 @@ public class HttpEntityHandler {
         try {
             Handle<T> handle = Handle.create(response, returnType, requiresVoidBodyHandling);
 
-            if (response.getStatus() >= 400) {
+            if (response.getStatus() >= ResponseCodes.BAD_REQUEST) {
 
                 if (handle404(handle).isComplete()) {
                     return handle.getReturnObject();
@@ -46,7 +47,7 @@ public class HttpEntityHandler {
     }
 
     private static <T> Handle<T> handle404(Handle<T> handle) {
-        if (handle.getResponse().getStatus() == 404) {
+        if (handle.getResponse().getStatus() == ResponseCodes.NOT_FOUND) {
             if (ListType.class.isAssignableFrom(handle.getReturnType()) ||
                     ObjectType.class.isAssignableFrom(handle.getReturnType())) {
                 try {

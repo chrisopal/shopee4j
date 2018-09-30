@@ -5,6 +5,7 @@ import com.salesmore.yak.integration.shopee.model.common.ReturnDisputeReason;
 import com.salesmore.yak.integration.shopee.model.returns.IReturnsRequestBase;
 import lombok.Builder;
 import lombok.Data;
+import lombok.Singular;
 
 import java.util.List;
 
@@ -39,6 +40,7 @@ public class ReturnDisputeRequest implements IReturnsRequestBase {
     /**
      * Image URLs that seller provide. Seller can upload up 3 images at most.
      */
+    @Singular
     private List<String> images;
 
     /**
