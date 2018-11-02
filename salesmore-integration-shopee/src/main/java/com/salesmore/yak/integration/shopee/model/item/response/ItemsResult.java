@@ -18,6 +18,12 @@ public class ItemsResult extends ListResult<ItemSimpleInfo> {
     List<ItemSimpleInfo> items;
 
     /**
+     * The identifier for an API request for error tracking
+     */
+    @JsonProperty("request_id")
+    private String requestId;
+
+    /**
      * This is to indicate whether the item list is more than one page.
      * If this value is true, you may want to continue to check next page to retrieve the rest of items.
      */

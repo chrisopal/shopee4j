@@ -88,6 +88,12 @@ public class OrderLogistics implements ModelEntity {
      */
     private boolean code;
 
+    /**
+     * The identifier for an API request for error tracking
+     */
+    @JsonProperty("request_id")
+    private String requestId;
+
     @Data
     public static class OrderLogisticsWrapper extends ObjectResult<OrderLogistics> {
 

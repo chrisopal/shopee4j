@@ -24,4 +24,10 @@ public class AirwayBillsResult implements ModelEntity {
     @JsonProperty("batch_result")
     private AirwayBills<String> batchResult;
 
+    /**
+     * The identifier for an API request for error tracking
+     */
+    @JsonProperty("request_id")
+    private String requestId;
+
 }

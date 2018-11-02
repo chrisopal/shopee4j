@@ -40,6 +40,12 @@ public class OrderBasics implements ModelEntity {
 
         private boolean more;
 
+        /**
+         * The identifier for an API request for error tracking
+         */
+        @JsonProperty("request_id")
+        private String requestId;
+
         @Override
         protected List<OrderBasics> value() {
             return orders;

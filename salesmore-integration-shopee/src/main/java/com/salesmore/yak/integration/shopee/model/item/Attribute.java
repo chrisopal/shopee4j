@@ -61,6 +61,12 @@ public class Attribute implements ModelEntity {
         @JsonProperty("attributes")
         private List<Attribute> attributes;
 
+        /**
+         * The identifier for an API request for error tracking
+         */
+        @JsonProperty("request_id")
+        private String requestId;
+
         @Override
         protected List<Attribute> value() {
             return attributes;

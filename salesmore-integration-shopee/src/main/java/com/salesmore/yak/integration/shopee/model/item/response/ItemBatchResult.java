@@ -50,6 +50,12 @@ public class ItemBatchResult extends ErrorResponse {
         @JsonProperty("batch_result")
         private List<ItemBatchResult> batchResults;
 
+        /**
+         * The identifier for an API request for error tracking
+         */
+        @JsonProperty("request_id")
+        private String requestId;
+
         @Override
         protected List<ItemBatchResult> value() {
             return batchResults;

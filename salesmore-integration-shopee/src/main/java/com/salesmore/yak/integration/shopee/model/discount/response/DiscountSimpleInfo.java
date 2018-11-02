@@ -45,6 +45,12 @@ public class DiscountSimpleInfo implements ModelEntity {
 
         private List<DiscountSimpleInfo> discount;
 
+        /**
+         * The identifier for an API request for error tracking
+         */
+        @JsonProperty("request_id")
+        private String requestId;
+
         @Override
         protected List<DiscountSimpleInfo> value() {
             return discount;

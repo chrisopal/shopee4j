@@ -41,4 +41,10 @@ public class VariationActionResult extends ErrorResponse {
      * Stock Updated
      */
     private Long stock;
+
+    /**
+     * The identifier for an API request for error tracking
+     */
+    @JsonProperty("request_id")
+    private String requestId;
 }

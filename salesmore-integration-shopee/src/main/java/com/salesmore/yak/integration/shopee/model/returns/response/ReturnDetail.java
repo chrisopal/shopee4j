@@ -147,6 +147,9 @@ public class ReturnDetail implements ModelEntity {
 
         private boolean more;
 
+        @JsonProperty("request_id")
+        private String requestId;
+
         @Override
         protected List<ReturnDetail> value() {
             return returns;

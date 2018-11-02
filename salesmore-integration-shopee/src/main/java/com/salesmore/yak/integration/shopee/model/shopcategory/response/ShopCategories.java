@@ -24,4 +24,10 @@ public class ShopCategories implements ModelEntity {
      * retrieve the rest of shop categorys.
      */
     private boolean more;
+
+    /**
+     * The identifier for an API request for error tracking
+     */
+    @JsonProperty("request_id")
+    private String requestId;
 }

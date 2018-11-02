@@ -78,4 +78,10 @@ public class EscrowDetail implements ModelEntity {
      */
     @JsonProperty("activity")
     List<Activity> activities;
+
+    /**
+     * The identifier for an API request for error tracking
+     */
+    @JsonProperty("request_id")
+    private String requestId;
 }

@@ -38,4 +38,10 @@ public class ItemImagesResult extends ErrorResponse implements ModelEntity {
      */
     @JsonProperty("modified_time")
     private Long modifiedTime;
+
+    /**
+     * The identifier for an API request for error tracking
+     */
+    @JsonProperty("request_id")
+    private String requestId;
 }

@@ -31,6 +31,12 @@ public class ImageUploadResult implements ModelEntity {
 
         private List<ImageUploadResult> images;
 
+        /**
+         * The identifier for an API request for error tracking
+         */
+        @JsonProperty("request_id")
+        private String requestId;
+
         @Override
         protected List<ImageUploadResult> value() {
             return images;

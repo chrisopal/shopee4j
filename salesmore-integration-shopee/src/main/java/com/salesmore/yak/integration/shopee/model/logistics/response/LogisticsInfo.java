@@ -29,4 +29,11 @@ public class LogisticsInfo implements ModelEntity {
      */
     @JsonProperty("info_needed")
     private ParameterForInit infoNeeded;
+
+
+    /**
+     * The identifier for an API request for error tracking
+     */
+    @JsonProperty("request_id")
+    private String requestId;
 }

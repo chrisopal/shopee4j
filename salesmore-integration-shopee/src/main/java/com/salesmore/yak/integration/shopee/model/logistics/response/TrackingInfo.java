@@ -43,5 +43,11 @@ public class TrackingInfo implements ModelEntity {
          */
         @JsonProperty("tracking_number")
         private String trackingNumber;
+
+        /**
+         * The identifier for an API request for error tracking
+         */
+        @JsonProperty("request_id")
+        private String requestId;
     }
 }

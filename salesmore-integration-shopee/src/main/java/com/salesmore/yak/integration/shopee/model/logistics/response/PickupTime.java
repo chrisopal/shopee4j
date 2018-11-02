@@ -37,6 +37,12 @@ public class PickupTime implements ModelEntity {
         @JsonProperty("pickup_time")
         private List<PickupTime> pickupTimes;
 
+        /**
+         * The identifier for an API request for error tracking
+         */
+        @JsonProperty("request_id")
+        private String requestId;
+
         @Override
         protected List<PickupTime> value() {
             return pickupTimes;

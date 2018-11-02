@@ -6,6 +6,7 @@ import com.salesmore.yak.integration.core.transport.*;
 import okhttp3.*;
 import okhttp3.internal.Util;
 import okhttp3.internal.http.RealResponseBody;
+import okhttp3.logging.HttpLoggingInterceptor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -77,7 +78,9 @@ public final class HttpCommand<R> {
         if (config.getHostNameVerifier() != null)
             okHttpClientBuilder.hostnameVerifier(config.getHostNameVerifier());
         if (HttpLoggingFilter.isLoggingEnabled()) {
-            okHttpClientBuilder.addInterceptor(new LoggingInterceptor());
+            HttpLoggingInterceptor logInterceptor = new HttpLoggingInterceptor(new HttpLogger());
+            logInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+            okHttpClientBuilder.addInterceptor(logInterceptor);
         }
         okHttpClientBuilder.connectionPool(getConnectionPool());
         //to ignore the HTTP " + code + " had non-zero Content-Length: issue
@@ -233,6 +236,13 @@ public final class HttpCommand<R> {
             LOG.debug(String.format("Received response for %s in %.1fms%n%s",
                     response.request().url(), (t2 - t1) / 1e6d, response.headers()));
             return response;
+        }
+    }
+
+    public class HttpLogger implements HttpLoggingInterceptor.Logger {
+        @Override
+        public void log(String message) {
+            LOG.debug(message);
         }
     }
 }

@@ -42,6 +42,12 @@ public class Address extends AddressBase {
         @JsonProperty("address_list")
         private List<Address> addresses;
 
+        /**
+         * The identifier for an API request for error tracking
+         */
+        @JsonProperty("request_id")
+        private String requestId;
+
         @Override
         protected List<Address> value() {
             return addresses;

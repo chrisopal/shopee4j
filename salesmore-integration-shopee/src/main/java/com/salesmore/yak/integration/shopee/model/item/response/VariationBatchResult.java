@@ -56,6 +56,12 @@ public class VariationBatchResult extends ErrorResponse {
         @JsonProperty("batch_result")
         private List<VariationBatchResult> batchResults;
 
+        /**
+         * The identifier for an API request for error tracking
+         */
+        @JsonProperty("request_id")
+        private String requestId;
+
         @Override
         protected List<VariationBatchResult> value() {
             return batchResults;

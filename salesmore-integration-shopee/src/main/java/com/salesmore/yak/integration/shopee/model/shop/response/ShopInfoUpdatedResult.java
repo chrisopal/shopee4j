@@ -28,6 +28,12 @@ public class ShopInfoUpdatedResult extends ShopInfoBase implements ErrorBaseResp
     private long shopId;
 
     /**
+     * The identifier for an API request for error tracking
+     */
+    @JsonProperty("request_id")
+    private String requestId;
+
+    /**
      * Warning message if parts of image/video uploads failed.
      */
     private String warning;

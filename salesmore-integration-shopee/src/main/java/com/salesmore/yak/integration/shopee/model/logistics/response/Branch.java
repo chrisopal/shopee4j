@@ -32,6 +32,12 @@ public class Branch extends AddressBase {
         @JsonProperty("branch")
         private List<Branch> branches;
 
+        /**
+         * The identifier for an API request for error tracking
+         */
+        @JsonProperty("request_id")
+        private String requestId;
+
         @Override
         protected List<Branch> value() {
             return branches;

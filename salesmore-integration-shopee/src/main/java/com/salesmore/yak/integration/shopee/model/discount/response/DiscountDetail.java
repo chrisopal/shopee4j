@@ -43,4 +43,10 @@ public class DiscountDetail implements ModelEntity {
      * you may want to continue to check next page to retrieve the rest of items.
      */
     private boolean more;
+
+    /**
+     * The identifier for an API request for error tracking
+     */
+    @JsonProperty("request_id")
+    private String requestId;
 }

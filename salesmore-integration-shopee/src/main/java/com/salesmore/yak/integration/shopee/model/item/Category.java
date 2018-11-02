@@ -45,6 +45,12 @@ public class Category implements ModelEntity {
         @JsonProperty("categories")
         private List<Category> categories;
 
+        /**
+         * The identifier for an API request for error tracking
+         */
+        @JsonProperty("request_id")
+        private String requestId;
+
         @Override
         protected List<Category> value() {
             return categories;

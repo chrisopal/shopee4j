@@ -67,6 +67,12 @@ public class Logistics implements ModelEntity {
         @JsonProperty("logistics")
         private List<Logistics> logisticsList;
 
+        /**
+         * The identifier for an API request for error tracking
+         */
+        @JsonProperty("request_id")
+        private String requestId;
+
         @Override
         protected List<Logistics> value() {
             return logisticsList;

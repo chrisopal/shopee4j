@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.salesmore.yak.integration.core.model.ModelEntity;
 import com.salesmore.yak.integration.shopee.model.common.ShopCategoryStatus;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 @Data
 public class ShopCategory implements ModelEntity {
@@ -31,4 +33,10 @@ public class ShopCategory implements ModelEntity {
      * ShopCategory's status. Applicable values: NORMAL, INACTIVE, DELETED.
      */
     private ShopCategoryStatus status;
+
+    /**
+     * The identifier for an API request for error tracking
+     */
+    @JsonProperty("request_id")
+    private String requestId;
 }

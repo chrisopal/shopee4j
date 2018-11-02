@@ -25,4 +25,10 @@ public class CategoryItemsAdded implements ModelEntity {
      * Number of item in the shop category.
      */
     private long count;
+
+    /**
+     * The identifier for an API request for error tracking
+     */
+    @JsonProperty("request_id")
+    private String requestId;
 }
