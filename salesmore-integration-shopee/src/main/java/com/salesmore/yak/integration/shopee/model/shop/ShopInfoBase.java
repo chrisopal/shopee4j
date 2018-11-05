@@ -2,16 +2,17 @@ package com.salesmore.yak.integration.shopee.model.shop;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.salesmore.yak.integration.core.model.ModelEntity;
+import com.salesmore.yak.integration.shopee.model.ErrorResponse;
 import lombok.*;
-import lombok.experimental.SuperBuilder;
 
 import java.util.List;
 
 @Data
+@ToString(callSuper = true)
+@EqualsAndHashCode(callSuper = true)
 @AllArgsConstructor
 @NoArgsConstructor
-@SuperBuilder
-public class ShopInfoBase implements ModelEntity {
+public class ShopInfoBase extends ErrorResponse implements ModelEntity {
 
     private static final long serialVersionUID = 1L;
 

@@ -1,5 +1,6 @@
 package com.salesmore.yak.integration.shopee.service;
 
+import com.salesmore.yak.integration.core.transport.HttpLoggingFilter;
 import com.salesmore.yak.integration.shopee.api.Builders;
 import com.salesmore.yak.integration.shopee.api.ShopeeClient;
 import com.salesmore.yak.integration.shopee.model.PaginationBaseRequest;
@@ -18,6 +19,7 @@ public class AbstractTest {
 
     static {
         System.setProperty("log4j.configurationFile","./log4j.xml");
+        HttpLoggingFilter.toggleLogging(true);
     }
 
     protected static final String TEST_SERVER_ENDPOINT = "https://partner.uat.shopeemobile.com/api/v1";

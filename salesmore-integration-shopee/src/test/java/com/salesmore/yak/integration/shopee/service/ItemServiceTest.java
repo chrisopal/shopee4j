@@ -20,6 +20,11 @@ import static org.testng.Assert.assertNotNull;
 public class ItemServiceTest extends AbstractTest {
 
     @Test
+    public void a_getItemList() throws Exception {
+
+    }
+
+    @Test
     public void getCategories() throws Exception {
 
         List<Category> categoryList = client().item().getCategories(itemBaseRequest());
@@ -160,9 +165,9 @@ public class ItemServiceTest extends AbstractTest {
 		@SuppressWarnings("rawtypes")
 		ItemUpdateBatchBuilder builder = ItemUpdateBatch.builder().partnerId(PARTNER_ID).shopId(SHOP_ID).timestamp(System.currentTimeMillis()/1000);
         for(ItemSimpleInfo item : items){
-            builder.item(ItemUpdate.builder().id(item.getId()).price(ThreadLocalRandom.current().nextFloat()*20).build());
+            builder.item(ItemUpdate.builder().id(item.getId()).price(ThreadLocalRandom.current().nextFloat()*20+0.1f).build());
         }
-        List<ItemBatchResult> result = client().item().updateItemPriceBatch(builder.build());
+        ItemBatchResult result = client().item().updateItemPriceBatch(builder.build());
         logger.info("Update Items Price Batch: {}", result);
         assertNotNull(result);
     }
@@ -173,7 +178,7 @@ public class ItemServiceTest extends AbstractTest {
         for(ItemSimpleInfo item : items){
             builder.item(ItemUpdate.builder().id(item.getId()).stock(ThreadLocalRandom.current().nextLong(100, 150)).build());
         }
-        List<ItemBatchResult> result = client().item().updateItemStockBatch(builder.build());
+        ItemBatchResult result = client().item().updateItemStockBatch(builder.build());
         logger.info("Update Items Stock Batch: {}", result);
         assertNotNull(result);
     }
@@ -184,7 +189,7 @@ public class ItemServiceTest extends AbstractTest {
         for( Variation variation : variationAddResult.getVariations() ) {
             variationBatchBuilder.variation(Variation.builder().id(variation.getId()).price(variation.getPrice()+0.5f).itemId(itemId).build());
         }
-        List<VariationBatchResult> variationPriceBatchResult = client().item().updateVariationPriceBatch(variationBatchBuilder.build());
+        VariationBatchResult variationPriceBatchResult = client().item().updateVariationPriceBatch(variationBatchBuilder.build());
         logger.info("Update VariationPriceBatch Result: {}", variationPriceBatchResult);
         assertNotNull(variationPriceBatchResult);
     }
@@ -195,7 +200,7 @@ public class ItemServiceTest extends AbstractTest {
         for (Variation variation : variationAddResult.getVariations()) {
             variationBatchBuilderStock.variation(Variation.builder().id(variation.getId()).stock(variation.getStock() + 15).itemId(itemId).build());
         }
-        List<VariationBatchResult> variationStockBatchResult = client().item().updateVariationStockBatch(variationBatchBuilderStock.build());
+        VariationBatchResult variationStockBatchResult = client().item().updateVariationStockBatch(variationBatchBuilderStock.build());
         logger.info("Update VariationStockBatch Result: {}", variationStockBatchResult);
         assertNotNull(variationStockBatchResult);
     }
@@ -276,7 +281,7 @@ public class ItemServiceTest extends AbstractTest {
         return CategoriesByCounty.builder()
                 .partnerId(PARTNER_ID)
                 .country(Country.SG)
-                .isCrossBorder(0)
+                .isCrossBorder(1)
                 .language(Language.EN)
                 .timestamp(System.currentTimeMillis() / 1000)
                 .build();

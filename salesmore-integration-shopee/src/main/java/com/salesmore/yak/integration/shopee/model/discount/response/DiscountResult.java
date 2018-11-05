@@ -26,10 +26,4 @@ public class DiscountResult extends ErrorResponse implements ModelEntity {
      */
     private String warning;
 
-    /**
-     * The identifier for an API request for error tracking
-     */
-    @JsonProperty("request_id")
-    private String requestId;
-
 }

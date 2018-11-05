@@ -2,12 +2,17 @@ package com.salesmore.yak.integration.shopee.model.discount.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.salesmore.yak.integration.core.model.ModelEntity;
+import com.salesmore.yak.integration.shopee.model.ErrorResponse;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 import java.util.List;
 
 @Data
-public class DiscountDetail implements ModelEntity {
+@ToString(callSuper = true)
+@EqualsAndHashCode(callSuper = true)
+public class DiscountDetail extends ErrorResponse implements ModelEntity {
 
     public static final long serialVersionUID = 1L;
 
@@ -43,10 +48,4 @@ public class DiscountDetail implements ModelEntity {
      * you may want to continue to check next page to retrieve the rest of items.
      */
     private boolean more;
-
-    /**
-     * The identifier for an API request for error tracking
-     */
-    @JsonProperty("request_id")
-    private String requestId;
 }

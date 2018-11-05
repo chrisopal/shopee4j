@@ -3,9 +3,11 @@ package com.salesmore.yak.integration.shopee.model.order.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.salesmore.yak.integration.core.model.ModelEntity;
-import com.salesmore.yak.integration.core.service.ListResult;
+import com.salesmore.yak.integration.shopee.model.common.ListResult;
 import com.salesmore.yak.integration.shopee.model.common.OrderStatus;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 import java.util.List;
 
@@ -32,6 +34,8 @@ public class OrderBasics implements ModelEntity {
     private String updateTime;
 
     @Data
+    @ToString(callSuper = true)
+    @EqualsAndHashCode(callSuper = true)
     public static class OrderBasicsList extends ListResult<OrderBasics> {
 
         public static final long serialVersionUID = 1L;
@@ -39,12 +43,6 @@ public class OrderBasics implements ModelEntity {
         private List<OrderBasics> orders;
 
         private boolean more;
-
-        /**
-         * The identifier for an API request for error tracking
-         */
-        @JsonProperty("request_id")
-        private String requestId;
 
         @Override
         protected List<OrderBasics> value() {

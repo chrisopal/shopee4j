@@ -21,6 +21,6 @@ public class ImageServiceImpl extends BaseRestClientService implements ImageServ
     public List<ImageUploadResult> uploadImages(ImageUpload imageUploadRequest) {
         checkNotNull(imageUploadRequest);
         checkArgument(imageUploadRequest.getImages() != null && imageUploadRequest.getImages().size() <= IMAGE_MAX_SIZE);
-        return post(ImageUploadResults.class, uri(IMAGE_UPLOAD_RELATIVE_PATH)).entity(imageUploadRequest).execute().getList();
+        return post(ImageUploadResults.class, uri(IMAGE_UPLOAD_RELATIVE_PATH)).entity(imageUploadRequest).executeWithErrorResponse().getList();
     }
 }

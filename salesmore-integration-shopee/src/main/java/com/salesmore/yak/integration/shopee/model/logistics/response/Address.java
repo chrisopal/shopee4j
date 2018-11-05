@@ -1,7 +1,7 @@
 package com.salesmore.yak.integration.shopee.model.logistics.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.salesmore.yak.integration.core.service.ListResult;
+import com.salesmore.yak.integration.shopee.model.common.ListResult;
 import com.salesmore.yak.integration.shopee.model.AddressBase;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -35,18 +35,14 @@ public class Address extends AddressBase {
     private String address;
 
     @Data
+    @ToString(callSuper = true)
+    @EqualsAndHashCode(callSuper = true)
     public static class Addresses extends ListResult<Address> {
 
         public static final long serialVersionUID = 1L;
 
         @JsonProperty("address_list")
         private List<Address> addresses;
-
-        /**
-         * The identifier for an API request for error tracking
-         */
-        @JsonProperty("request_id")
-        private String requestId;
 
         @Override
         protected List<Address> value() {

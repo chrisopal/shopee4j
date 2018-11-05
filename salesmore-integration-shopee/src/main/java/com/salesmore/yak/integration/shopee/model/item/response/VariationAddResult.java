@@ -31,9 +31,4 @@ public class VariationAddResult extends ErrorResponse {
      */
     private List<Variation> variations;
 
-    /**
-     * The identifier for an API request for error tracking
-     */
-    @JsonProperty("request_id")
-    private String requestId;
 }

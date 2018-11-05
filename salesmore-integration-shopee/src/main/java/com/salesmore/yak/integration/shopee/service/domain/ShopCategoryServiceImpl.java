@@ -24,36 +24,36 @@ public class ShopCategoryServiceImpl extends BaseRestClientService implements Sh
     @Override
     public CategoryItemsAdded addCategoryItems(CategoryItems categoryItems) {
         checkNotNull(categoryItems);
-        return post(CategoryItemsAdded.class, uri(PathConstants.SHOP_CATEGORY_ADD_ITEMS_RELATEIVE_PATH)).entity(categoryItems).execute();
+        return post(CategoryItemsAdded.class, uri(PathConstants.SHOP_CATEGORY_ADD_ITEMS_RELATEIVE_PATH)).entity(categoryItems).executeWithErrorResponse();
     }
 
     @Override
     public List<CategoryItemId> getCategoryItems(ShopCategoryIdRequest shopCategoryRequest) {
         checkNotNull(shopCategoryRequest);
-        return post(CategoryItemIds.class, uri(PathConstants.SHOP_CATEGORY_GET_ITEMS_RELATEIVE_PATH)).entity(shopCategoryRequest).execute().getList();
+        return post(CategoryItemIds.class, uri(PathConstants.SHOP_CATEGORY_GET_ITEMS_RELATEIVE_PATH)).entity(shopCategoryRequest).executeWithErrorResponse().getList();
     }
 
     @Override
     public ShopCategoryIdEntity addShopCategory(ShopCategoryRequest shopCategoryRequest) {
         checkNotNull(shopCategoryRequest);
-        return post(ShopCategoryIdEntity.class, uri(PathConstants.SHOP_CATEGORY_ADD_RELATEIVE_PATH)).entity(shopCategoryRequest).execute();
+        return post(ShopCategoryIdEntity.class, uri(PathConstants.SHOP_CATEGORY_ADD_RELATEIVE_PATH)).entity(shopCategoryRequest).executeWithErrorResponse();
     }
 
     @Override
     public ShopCategory updateShopCategory(ShopCategoryRequest shopCategoryRequest) {
         checkNotNull(shopCategoryRequest);
-        return post(ShopCategory.class, uri(PathConstants.SHOP_CATEGORY_UPDATE_RELATEIVE_PATH)).entity(shopCategoryRequest).execute();
+        return post(ShopCategory.class, uri(PathConstants.SHOP_CATEGORY_UPDATE_RELATEIVE_PATH)).entity(shopCategoryRequest).executeWithErrorResponse();
     }
 
     @Override
     public ShopCategories getShopCategories(PaginationBaseRequest paginationRequest) {
         checkNotNull(paginationRequest);
-        return post(ShopCategories.class, uri(PathConstants.SHOP_CATEGORY_GET_RELATEIVE_PATH)).entity(paginationRequest).execute();
+        return post(ShopCategories.class, uri(PathConstants.SHOP_CATEGORY_GET_RELATEIVE_PATH)).entity(paginationRequest).executeWithErrorResponse();
     }
 
     @Override
     public ShopCategoryIdEntity deleteShopCategory(ShopCategoryIdRequest shopCategoryRequest) {
         checkNotNull(shopCategoryRequest);
-        return post(ShopCategoryIdEntity.class, uri(PathConstants.SHOP_CATEGORY_DELETE_RELATEIVE_PATH)).entity(shopCategoryRequest).execute();
+        return post(ShopCategoryIdEntity.class, uri(PathConstants.SHOP_CATEGORY_DELETE_RELATEIVE_PATH)).entity(shopCategoryRequest).executeWithErrorResponse();
     }
 }

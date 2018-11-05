@@ -3,12 +3,14 @@ package com.salesmore.yak.integration.shopee.model.logistics.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.salesmore.yak.integration.core.model.ModelEntity;
-import com.salesmore.yak.integration.core.service.ListResult;
+import com.salesmore.yak.integration.shopee.model.common.ListResult;
 import com.salesmore.yak.integration.shopee.model.common.FeeType;
 import com.salesmore.yak.integration.shopee.model.logistics.response.internal.ItemDimension;
 import com.salesmore.yak.integration.shopee.model.logistics.response.internal.Size;
 import com.salesmore.yak.integration.shopee.model.logistics.response.internal.WeightLimits;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 import java.util.List;
 
@@ -60,18 +62,14 @@ public class Logistics implements ModelEntity {
     private ItemDimension itemMaxDimension;
 
     @Data
+    @ToString(callSuper = true)
+    @EqualsAndHashCode(callSuper = true)
     public static class LogisticsList extends ListResult<Logistics> {
 
         public static final long serialVersionUID = 1L;
 
         @JsonProperty("logistics")
         private List<Logistics> logisticsList;
-
-        /**
-         * The identifier for an API request for error tracking
-         */
-        @JsonProperty("request_id")
-        private String requestId;
 
         @Override
         protected List<Logistics> value() {

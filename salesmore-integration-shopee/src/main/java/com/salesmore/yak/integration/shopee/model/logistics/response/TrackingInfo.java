@@ -2,8 +2,11 @@ package com.salesmore.yak.integration.shopee.model.logistics.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.salesmore.yak.integration.core.model.ModelEntity;
+import com.salesmore.yak.integration.shopee.model.ErrorResponse;
 import com.salesmore.yak.integration.shopee.model.common.TrackingLogisticsStatus;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 import java.util.List;
 
@@ -28,7 +31,9 @@ public class TrackingInfo implements ModelEntity {
     private TrackingLogisticsStatus status;
 
     @Data
-    public static class TrackingInfoResult implements ModelEntity {
+    @ToString(callSuper = true)
+    @EqualsAndHashCode(callSuper = true)
+    public static class TrackingInfoResult extends ErrorResponse implements ModelEntity {
 
         public static final long serialVersionUID = 1L;
 
@@ -43,11 +48,5 @@ public class TrackingInfo implements ModelEntity {
          */
         @JsonProperty("tracking_number")
         private String trackingNumber;
-
-        /**
-         * The identifier for an API request for error tracking
-         */
-        @JsonProperty("request_id")
-        private String requestId;
     }
 }

@@ -1,7 +1,8 @@
 package com.salesmore.yak.integration.shopee.model.item.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.salesmore.yak.integration.core.service.ListResult;
+import com.salesmore.yak.integration.shopee.model.ObjectResult;
+import com.salesmore.yak.integration.shopee.model.common.ListResult;
 import com.salesmore.yak.integration.shopee.model.ErrorResponse;
 import lombok.Data;
 import lombok.ToString;
@@ -9,8 +10,7 @@ import lombok.ToString;
 import java.util.List;
 
 @Data
-@ToString(callSuper = true)
-public class VariationBatchResult extends ErrorResponse {
+public class VariationBatchResult {
 
     public static final long serialVersionUID = 1L;
 
@@ -49,22 +49,16 @@ public class VariationBatchResult extends ErrorResponse {
     }
 
     @Data
-    public static class VariationBatchesResult extends ListResult<VariationBatchResult> {
+    public static class VariationBatchesResult extends ObjectResult<VariationBatchResult> {
 
         private static final long serialVersionUID = 1L;
 
         @JsonProperty("batch_result")
-        private List<VariationBatchResult> batchResults;
-
-        /**
-         * The identifier for an API request for error tracking
-         */
-        @JsonProperty("request_id")
-        private String requestId;
+        private VariationBatchResult batchResult;
 
         @Override
-        protected List<VariationBatchResult> value() {
-            return batchResults;
+        protected VariationBatchResult value() {
+            return batchResult;
         }
     }
 

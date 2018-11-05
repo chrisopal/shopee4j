@@ -3,13 +3,18 @@ package com.salesmore.yak.integration.shopee.model.order.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.salesmore.yak.integration.core.model.ModelEntity;
+import com.salesmore.yak.integration.shopee.model.ErrorResponse;
 import com.salesmore.yak.integration.shopee.model.common.Country;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 import java.util.List;
 
 @Data
-public class EscrowDetail implements ModelEntity {
+@ToString(callSuper = true)
+@EqualsAndHashCode(callSuper = true)
+public class EscrowDetail extends ErrorResponse implements ModelEntity {
 
     public static final long serialVersionUID = 1L;
 
@@ -78,10 +83,4 @@ public class EscrowDetail implements ModelEntity {
      */
     @JsonProperty("activity")
     List<Activity> activities;
-
-    /**
-     * The identifier for an API request for error tracking
-     */
-    @JsonProperty("request_id")
-    private String requestId;
 }

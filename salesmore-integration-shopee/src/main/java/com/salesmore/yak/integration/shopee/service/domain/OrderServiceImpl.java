@@ -34,14 +34,14 @@ public class OrderServiceImpl extends BaseRestClientService implements OrderServ
     public EscrowDetail getEscrowDetails(OrderIdRequest idRequest) {
         checkNotNull(idRequest);
         checkNotNull(idRequest.getOrdersn());
-        return post(EscrowDetails.class, uri(ORDER_GET_ESCROW_DETAIL_RELATIVE_PATH)).entity(idRequest).execute().get(EscrowDetail.class);
+        return post(EscrowDetails.class, uri(ORDER_GET_ESCROW_DETAIL_RELATIVE_PATH)).entity(idRequest).executeWithErrorResponse().get(EscrowDetail.class);
     }
 
     @Override
     public OrderDetails getOrderDetails(OrderIdsRequest idsRequest) {
         checkNotNull(idsRequest);
         checkArgument(idsRequest.getOrdersns() != null && !idsRequest.getOrdersns().isEmpty() );
-        return post(OrderDetails.class, uri(ORDER_GET_ORDER_DETAIL_RELATIVE_PATH)).entity(idsRequest).execute();
+        return post(OrderDetails.class, uri(ORDER_GET_ORDER_DETAIL_RELATIVE_PATH)).entity(idsRequest).executeWithErrorResponse();
 
     }
 
@@ -49,13 +49,13 @@ public class OrderServiceImpl extends BaseRestClientService implements OrderServ
     public OrderBasicsList getOrdersByStatus(OrderPaginationRequest query) {
         checkNotNull(query);
         checkNotNull(query.getStatus());
-        return post(OrderBasicsList.class, uri(ORDER_GET_BY_STATUS_RELATIVE_PATH)).entity(query).execute();
+        return post(OrderBasicsList.class, uri(ORDER_GET_BY_STATUS_RELATIVE_PATH)).entity(query).executeWithErrorResponse();
     }
 
     @Override
     public OrderBasicsList getOrderList(OrderPaginationRequest query) {
         checkNotNull(query);
-        return post(OrderBasicsList.class, uri(ORDER_GET_BASICS_RELATIVE_PATH)).entity(query).execute();
+        return post(OrderBasicsList.class, uri(ORDER_GET_BASICS_RELATIVE_PATH)).entity(query).executeWithErrorResponse();
 
     }
 
@@ -63,7 +63,7 @@ public class OrderServiceImpl extends BaseRestClientService implements OrderServ
     public OrderActionResult acceptBuyerCancellation(OrderIdRequest idRequest) {
         checkNotNull(idRequest);
         checkNotNull(idRequest.getOrdersn());
-        return post(OrderActionResult.class, uri(ORDER_ACCEPT_BUYER_CANCELLATION_RELATIVE_PATH)).entity(idRequest).execute();
+        return post(OrderActionResult.class, uri(ORDER_ACCEPT_BUYER_CANCELLATION_RELATIVE_PATH)).entity(idRequest).executeWithErrorResponse();
 
     }
 
@@ -71,6 +71,6 @@ public class OrderServiceImpl extends BaseRestClientService implements OrderServ
     public OrderActionResult rejectBuyerCancellation(OrderIdRequest idRequest) {
         checkNotNull(idRequest);
         checkNotNull(idRequest.getOrdersn());
-        return post(OrderActionResult.class, uri(ORDER_REJECT_BUYER_CANCELLATION_RELATIVE_PATH)).entity(idRequest).execute();
+        return post(OrderActionResult.class, uri(ORDER_REJECT_BUYER_CANCELLATION_RELATIVE_PATH)).entity(idRequest).executeWithErrorResponse();
     }
 }

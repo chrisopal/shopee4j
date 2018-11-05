@@ -32,7 +32,7 @@ public class PathConstants {
 
     public static final String SHOP_CATEGORY_ADD_RELATEIVE_PATH = "/shop_category/add";
 
-    public static final String SHOP_CATEGORY_GET_ITEMS_RELATEIVE_PATH = "/shop_category/get/item";
+    public static final String SHOP_CATEGORY_GET_ITEMS_RELATEIVE_PATH = "/shop_category/get/items";
 
     public static final String SHOP_CATEGORY_GET_RELATEIVE_PATH = "/shop_categorys/get";
 

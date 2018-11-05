@@ -3,13 +3,18 @@ package com.salesmore.yak.integration.shopee.model.logistics.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.salesmore.yak.integration.core.model.ModelEntity;
+import com.salesmore.yak.integration.shopee.model.ErrorResponse;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 import static com.salesmore.yak.integration.shopee.model.logistics.response.Address.Addresses;
 import static com.salesmore.yak.integration.shopee.model.logistics.response.Branch.Branches;
 
 @Data
-public class LogisticsInfo implements ModelEntity {
+@ToString(callSuper = true)
+@EqualsAndHashCode(callSuper = true)
+public class LogisticsInfo extends ErrorResponse implements ModelEntity {
 
     public static final long serialVersionUID = 1L;
 
@@ -29,11 +34,4 @@ public class LogisticsInfo implements ModelEntity {
      */
     @JsonProperty("info_needed")
     private ParameterForInit infoNeeded;
-
-
-    /**
-     * The identifier for an API request for error tracking
-     */
-    @JsonProperty("request_id")
-    private String requestId;
 }

@@ -104,12 +104,17 @@ public class DiscountServiceTest extends AbstractTest {
         	DiscountItem.DiscountItemBuilder builder = DiscountItem.builder().id(item.getId()).purchaseLimit(10L);
         	if( item.getVariations() != null && !item.getVariations().isEmpty() ) {
         		for(Variation variation : item.getVariations()) {
-                    if(!add)
-                        discountItems.add(builder.variation(DiscountVariation.builder().id(variation.getId()).promotionPrice(Math.abs(variation.getPrice() - ThreadLocalRandom.current().nextFloat())).build()).build());
+                    if(!add) {
+                        builder.variation(DiscountVariation.builder().id(variation.getId()).promotionPrice(0.1f + Math.abs(variation.getPrice() - ThreadLocalRandom.current().nextFloat())).build());
+                    }
         		}
+        		discountItems.add(builder.build());
         	}else {
-        	    if(add)
-        		    discountItems.add(builder.promotionPrice(1+ThreadLocalRandom.current().nextFloat()*5).build());
+        	    if(add) {
+                    DiscountItem discountItem = builder.promotionPrice(1 + ThreadLocalRandom.current().nextFloat() * 5).build();
+                    if (!discountItems.contains(discountItem))
+                        discountItems.add(discountItem);
+                }
         	}
         }
         logger.info("Discount Items: {}", discountItems);

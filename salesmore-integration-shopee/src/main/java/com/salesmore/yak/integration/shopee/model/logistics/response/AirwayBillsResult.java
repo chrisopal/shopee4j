@@ -2,13 +2,18 @@ package com.salesmore.yak.integration.shopee.model.logistics.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.salesmore.yak.integration.core.model.ModelEntity;
+import com.salesmore.yak.integration.shopee.model.ErrorResponse;
 import com.salesmore.yak.integration.shopee.model.logistics.response.internal.AirwayBill;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 import static com.salesmore.yak.integration.shopee.model.logistics.response.internal.AirwayBill.AirwayBills;
 
 @Data
-public class AirwayBillsResult implements ModelEntity {
+@ToString(callSuper = true)
+@EqualsAndHashCode(callSuper = true)
+public class AirwayBillsResult extends ErrorResponse implements ModelEntity {
 
     public static final long serialVersionUID = 1L;
 
@@ -23,11 +28,5 @@ public class AirwayBillsResult implements ModelEntity {
      */
     @JsonProperty("batch_result")
     private AirwayBills<String> batchResult;
-
-    /**
-     * The identifier for an API request for error tracking
-     */
-    @JsonProperty("request_id")
-    private String requestId;
 
 }

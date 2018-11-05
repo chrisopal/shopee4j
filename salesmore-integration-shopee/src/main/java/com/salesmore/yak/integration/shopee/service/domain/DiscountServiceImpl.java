@@ -33,27 +33,27 @@ public class DiscountServiceImpl extends BaseRestClientService implements Discou
     public DiscountActionResult deleteDiscount(DiscountIdRequest idRequest) {
         checkNotNull(idRequest);
         checkNotNull(idRequest.getId());
-        return post(DiscountActionResult.class,uri(DISCOUNT_DELETE_RELATIVE_PATH)).entity(idRequest).execute();
+        return post(DiscountActionResult.class,uri(DISCOUNT_DELETE_RELATIVE_PATH)).entity(idRequest).executeWithErrorResponse();
     }
 
     @Override
     public DiscountItemActionResult deleteDiscountItem(DiscountItemIdRequest itemIdRequest) {
         checkNotNull(itemIdRequest);
         checkArgument(itemIdRequest.getId() != null && itemIdRequest.getDiscountId() != null);
-        return post(DiscountItemActionResult.class,uri(DISCOUNT_ITEM_DELETE_RELATIVE_PATH)).entity(itemIdRequest).execute();
+        return post(DiscountItemActionResult.class,uri(DISCOUNT_ITEM_DELETE_RELATIVE_PATH)).entity(itemIdRequest).executeWithErrorResponse();
 
     }
 
     @Override
     public DiscountDetail getDiscountDetail(DiscountPaginationRequest paginationRequest) {
         checkNotNull(paginationRequest);
-        return post(DiscountDetail.class,uri(DISCOUNT_GET_DETAIL_RELATIVE_PATH)).entity(paginationRequest).execute();
+        return post(DiscountDetail.class,uri(DISCOUNT_GET_DETAIL_RELATIVE_PATH)).entity(paginationRequest).executeWithErrorResponse();
     }
 
     @Override
     public DiscountSimpleInfoList getDiscountList(DiscountPaginationRequest paginationRequest) {
         checkNotNull(paginationRequest);
-        return post(DiscountSimpleInfoList.class, uri(DISCOUNT_GET_LIST_RELATIVE_PATH)).entity(paginationRequest).execute();
+        return post(DiscountSimpleInfoList.class, uri(DISCOUNT_GET_LIST_RELATIVE_PATH)).entity(paginationRequest).executeWithErrorResponse();
     }
 
     @Override

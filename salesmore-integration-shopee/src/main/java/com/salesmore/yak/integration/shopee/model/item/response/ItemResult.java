@@ -35,10 +35,4 @@ public class ItemResult extends ErrorResponse {
      */
     private String warning;
 
-    /**
-     * The identifier for an API request for error tracking
-     */
-    @JsonProperty("request_id")
-    private String requestId;
-
 }

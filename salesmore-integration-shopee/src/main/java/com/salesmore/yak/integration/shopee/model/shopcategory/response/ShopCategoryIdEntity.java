@@ -1,11 +1,16 @@
 package com.salesmore.yak.integration.shopee.model.shopcategory.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.salesmore.yak.integration.shopee.model.ErrorResponse;
 import com.salesmore.yak.integration.shopee.model.ModelIdEntity;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 @Data
-public class ShopCategoryIdEntity implements ModelIdEntity {
+@ToString(callSuper = true)
+@EqualsAndHashCode(callSuper = true)
+public class ShopCategoryIdEntity extends ErrorResponse implements ModelIdEntity {
 
     public static final long serialVersionUID = 1L;
 
@@ -18,12 +23,6 @@ public class ShopCategoryIdEntity implements ModelIdEntity {
     /**
      * Result Message
      */
-    private String msg;
-
-    /**
-     * The identifier for an API request for error tracking
-     */
-    @JsonProperty("request_id")
-    private String requestId;
+    //private String msg;
 
 }

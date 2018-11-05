@@ -123,7 +123,7 @@ public interface ItemService extends RestService {
      * @param updateBatch price update batch
      * @return batch result
      */
-    List<ItemBatchResult> updateItemPriceBatch(ItemUpdateBatch updateBatch);
+    ItemBatchResult updateItemPriceBatch(ItemUpdateBatch updateBatch);
 
     /**
      * Update Item Stock Batch
@@ -131,7 +131,7 @@ public interface ItemService extends RestService {
      * @param updateBatch stock update batch
      * @return batch result
      */
-    List<ItemBatchResult> updateItemStockBatch(ItemUpdateBatch updateBatch);
+    ItemBatchResult updateItemStockBatch(ItemUpdateBatch updateBatch);
 
     /**
      * Add a Variation to Item
@@ -171,7 +171,7 @@ public interface ItemService extends RestService {
      * @param variationBatch batch request
      * @return batch result
      */
-    List<VariationBatchResult> updateVariationPriceBatch(VariationBatch variationBatch);
+    VariationBatchResult updateVariationPriceBatch(VariationBatch variationBatch);
 
     /**
      * Update VariationStock Batch
@@ -179,5 +179,5 @@ public interface ItemService extends RestService {
      * @param variationBatch batch request
      * @return batch result
      */
-    List<VariationBatchResult> updateVariationStockBatch(VariationBatch variationBatch);
+    VariationBatchResult updateVariationStockBatch(VariationBatch variationBatch);
 }

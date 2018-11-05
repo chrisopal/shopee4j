@@ -2,7 +2,7 @@ package com.salesmore.yak.integration.shopee.model.discount.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.salesmore.yak.integration.core.model.ModelEntity;
-import com.salesmore.yak.integration.core.service.ListResult;
+import com.salesmore.yak.integration.shopee.model.common.ListResult;
 import lombok.Data;
 
 import java.util.List;
@@ -44,12 +44,6 @@ public class DiscountSimpleInfo implements ModelEntity {
         private boolean more;
 
         private List<DiscountSimpleInfo> discount;
-
-        /**
-         * The identifier for an API request for error tracking
-         */
-        @JsonProperty("request_id")
-        private String requestId;
 
         @Override
         protected List<DiscountSimpleInfo> value() {

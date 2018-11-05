@@ -19,7 +19,7 @@ public class ShopServiceImpl extends BaseRestClientService implements ShopServic
     @Override
     public ShopInfo getShopInfo(BaseRequest request) {
         checkNotNull(request);
-        return post(ShopInfo.class, uri(PathConstants.SHOP_GET_RELATIVE_PATH)).entity(request).execute();
+        return post(ShopInfo.class, uri(PathConstants.SHOP_GET_RELATIVE_PATH)).entity(request).executeWithErrorResponse();
     }
 
     @Override
@@ -32,7 +32,7 @@ public class ShopServiceImpl extends BaseRestClientService implements ShopServic
     @Override
     public ShopPerformance getShopPerformance(BaseRequest request) {
         checkNotNull(request);
-        return post(ShopPerformance.class, uri(PathConstants.SHOP_PERFORMANCE_RELATIVE_PATH)).entity(request).execute();
+        return post(ShopPerformance.class, uri(PathConstants.SHOP_PERFORMANCE_RELATIVE_PATH)).entity(request).executeWithErrorResponse();
     }
 
 

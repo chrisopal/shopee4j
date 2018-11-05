@@ -2,13 +2,18 @@ package com.salesmore.yak.integration.shopee.model.shopcategory.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.salesmore.yak.integration.core.model.ModelEntity;
+import com.salesmore.yak.integration.shopee.model.ErrorResponse;
 import com.salesmore.yak.integration.shopee.model.shopcategory.ShopCategory;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 import java.util.List;
 
 @Data
-public class ShopCategories implements ModelEntity {
+@ToString(callSuper = true)
+@EqualsAndHashCode(callSuper = true)
+public class ShopCategories extends ErrorResponse implements ModelEntity {
 
     public static final long serialVersionUID = 1L;
 
@@ -24,10 +29,4 @@ public class ShopCategories implements ModelEntity {
      * retrieve the rest of shop categorys.
      */
     private boolean more;
-
-    /**
-     * The identifier for an API request for error tracking
-     */
-    @JsonProperty("request_id")
-    private String requestId;
 }

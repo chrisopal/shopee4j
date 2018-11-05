@@ -1,12 +1,16 @@
 package com.salesmore.yak.integration.shopee.model.item.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.salesmore.yak.integration.core.service.ListResult;
+import com.salesmore.yak.integration.shopee.model.common.ListResult;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 import java.util.List;
 
 @Data
+@ToString(callSuper = true)
+@EqualsAndHashCode(callSuper = true)
 public class ItemsResult extends ListResult<ItemSimpleInfo> {
 
     public static final long serialVersionUID = 1L;
@@ -16,12 +20,6 @@ public class ItemsResult extends ListResult<ItemSimpleInfo> {
      */
     @JsonProperty("items")
     List<ItemSimpleInfo> items;
-
-    /**
-     * The identifier for an API request for error tracking
-     */
-    @JsonProperty("request_id")
-    private String requestId;
 
     /**
      * This is to indicate whether the item list is more than one page.

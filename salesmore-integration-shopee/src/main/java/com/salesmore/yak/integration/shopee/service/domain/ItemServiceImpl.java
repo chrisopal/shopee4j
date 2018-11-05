@@ -40,49 +40,49 @@ public class ItemServiceImpl extends BaseRestClientService implements ItemServic
     public ItemInfo getItemDetail(ItemIdRequest idRequest) {
         checkNotNull(idRequest);
         checkNotNull(idRequest.getId());
-        return post(ItemDetail.class, uri(ITEM_GET_DETAIL_RELATIVE_PATH)).entity(idRequest).execute().get(ItemInfo.class);
+        return post(ItemDetail.class, uri(ITEM_GET_DETAIL_RELATIVE_PATH)).entity(idRequest).executeWithErrorResponse().get(ItemInfo.class);
     }
 
     @Override
     public ItemsResult getItemList(PaginationBaseRequest queryRequest) {
         checkNotNull(queryRequest);
-        return post(ItemsResult.class, uri(ITEM_GET_LIST_RELATIVE_PATH)).entity(queryRequest).execute();
+        return post(ItemsResult.class, uri(ITEM_GET_LIST_RELATIVE_PATH)).entity(queryRequest).executeWithErrorResponse();
     }
 
     @Override
     public ItemIdEntity deleteItem(ItemIdRequest idRequest) {
         checkNotNull(idRequest);
         checkNotNull(idRequest.getId());
-        return post(ItemIdEntity.class, uri(ITEM_DELETE_RELATIVE_PATH)).entity(idRequest).execute();
+        return post(ItemIdEntity.class, uri(ITEM_DELETE_RELATIVE_PATH)).entity(idRequest).executeWithErrorResponse();
     }
 
     @Override
     public ItemUpdateActionResult updateItemPrice(ItemPrice itemPrice) {
         checkNotNull(itemPrice);
         checkArgument(itemPrice.getPrice() != 0);
-        return post(ItemActionResultWrapper.class, uri(ITEM_UPDATE_PRICE_RELATIVE_PATH)).entity(itemPrice).execute().get(ItemUpdateActionResult.class);
+        return post(ItemActionResultWrapper.class, uri(ITEM_UPDATE_PRICE_RELATIVE_PATH)).entity(itemPrice).executeWithErrorResponse().get(ItemUpdateActionResult.class);
     }
 
     @Override
     public ItemUpdateActionResult updateItemStock(ItemStock itemStock) {
         checkNotNull(itemStock);
         checkArgument(itemStock.getStock() != null);
-        return post(ItemActionResultWrapper.class, uri(ITEM_UPDATE_STOCK_RELATIVE_PATH)).entity(itemStock).execute().get(ItemUpdateActionResult.class);
+        return post(ItemActionResultWrapper.class, uri(ITEM_UPDATE_STOCK_RELATIVE_PATH)).entity(itemStock).executeWithErrorResponse().get(ItemUpdateActionResult.class);
 
     }
 
     @Override
-    public List<ItemBatchResult> updateItemPriceBatch(ItemUpdateBatch updateBatch) {
+    public ItemBatchResult updateItemPriceBatch(ItemUpdateBatch updateBatch) {
         checkNotNull(updateBatch);
         checkNotNull(updateBatch.getItems());
-        return post(ItemUpdateBatchesResult.class, uri(ITEM_BATCH_UPDATE_PRICE_PATH)).entity(updateBatch).executeWithErrorResponse().getList();
+        return post(ItemUpdateBatchesResult.class, uri(ITEM_BATCH_UPDATE_PRICE_PATH)).entity(updateBatch).executeWithErrorResponse().get(ItemBatchResult.class);
     }
 
     @Override
-    public List<ItemBatchResult> updateItemStockBatch(ItemUpdateBatch updateBatch) {
+    public ItemBatchResult updateItemStockBatch(ItemUpdateBatch updateBatch) {
         checkNotNull(updateBatch);
         checkNotNull(updateBatch.getItems());
-        return post(ItemUpdateBatchesResult.class, uri(ITEM_BATCH_UPDATE_STOCK_PATH)).entity(updateBatch).executeWithErrorResponse().getList();
+        return post(ItemUpdateBatchesResult.class, uri(ITEM_BATCH_UPDATE_STOCK_PATH)).entity(updateBatch).executeWithErrorResponse().get(ItemBatchResult.class);
 
     }
 
@@ -111,20 +111,20 @@ public class ItemServiceImpl extends BaseRestClientService implements ItemServic
     public List<Attribute> getAttributes(GetAttributes request) {
         checkNotNull(request);
         checkArgument(request.getCategoryId() != null);
-        return post(Attributes.class, uri(ITEM_ATTRIBUTES_GET_PATH)).entity(request).execute().getList();
+        return post(Attributes.class, uri(ITEM_ATTRIBUTES_GET_PATH)).entity(request).executeWithErrorResponse().getList();
     }
 
     @Override
     public List<Category> getCategories(ItemBaseRequest request) {
         checkNotNull(request);
-        return post(Categories.class, uri(ITEM_CATEGORY_GET_PATH)).entity(request).execute().getList();
+        return post(Categories.class, uri(ITEM_CATEGORY_GET_PATH)).entity(request).executeWithErrorResponse().getList();
     }
 
     @Override
     public List<Category> getCategoriesByCountry(CategoriesByCounty request) {
         checkNotNull(request);
         checkArgument(request.getCountry() != null);
-        return post(Categories.class, uri(ITEM_CATEGORY_GET_BY_COUNTRY)).entity(request).execute().getList();
+        return post(Categories.class, uri(ITEM_CATEGORY_GET_BY_COUNTRY)).entity(request).executeWithErrorResponse().getList();
     }
 
     @Override
@@ -138,14 +138,14 @@ public class ItemServiceImpl extends BaseRestClientService implements ItemServic
     public VariationActionResult deleteVariation(VariationIdRequest idRequest) {
         checkNotNull(idRequest);
         checkArgument(idRequest.getId() != null);
-        return post(VariationActionResult.class, uri(ITEM_VARIATIONS_DELETE_RELATIVE_PATH)).entity(idRequest).execute();
+        return post(VariationActionResult.class, uri(ITEM_VARIATIONS_DELETE_RELATIVE_PATH)).entity(idRequest).executeWithErrorResponse();
     }
 
     @Override
     public VariationActionResult updateVariationPrice(VariationPrice variationPrice) {
         checkNotNull(variationPrice);
         checkArgument(variationPrice.getId() != null);
-        return post(VariationActionResultWrapper.class, uri(ITEM_VARIATIONS_UPDATE_PRICE_PATH)).entity(variationPrice).execute().get(VariationActionResult.class);
+        return post(VariationActionResultWrapper.class, uri(ITEM_VARIATIONS_UPDATE_PRICE_PATH)).entity(variationPrice).executeWithErrorResponse().get(VariationActionResult.class);
 
     }
 
@@ -153,21 +153,21 @@ public class ItemServiceImpl extends BaseRestClientService implements ItemServic
     public VariationActionResult updateVariationStock(VariationStock variationStock) {
         checkNotNull(variationStock);
         checkArgument(variationStock.getId() != null);
-        return post(VariationActionResultWrapper.class, uri(ITEM_VARIATIONS_UPDATE_STOCK_PATH)).entity(variationStock).execute().get(VariationActionResult.class);
+        return post(VariationActionResultWrapper.class, uri(ITEM_VARIATIONS_UPDATE_STOCK_PATH)).entity(variationStock).executeWithErrorResponse().get(VariationActionResult.class);
 
     }
 
     @Override
-    public List<VariationBatchResult> updateVariationPriceBatch(VariationBatch variationBatch) {
+    public VariationBatchResult updateVariationPriceBatch(VariationBatch variationBatch) {
         checkNotNull(variationBatch);
         checkNotNull(variationBatch.getVariations());
-        return post(VariationBatchesResult.class, uri(ITEM_VARIATIONS_BATCH_UPDATE_PRICE_PATH)).entity(variationBatch).executeWithErrorResponse().getList();
+        return post(VariationBatchesResult.class, uri(ITEM_VARIATIONS_BATCH_UPDATE_PRICE_PATH)).entity(variationBatch).executeWithErrorResponse().get(VariationBatchResult.class);
     }
 
     @Override
-    public List<VariationBatchResult> updateVariationStockBatch(VariationBatch variationBatch) {
+    public VariationBatchResult updateVariationStockBatch(VariationBatch variationBatch) {
         checkNotNull(variationBatch);
         checkNotNull(variationBatch.getVariations());
-        return post(VariationBatchesResult.class, uri(ITEM_VARIATIONS_BATCH_UPDATE_STOCK_PATH)).entity(variationBatch).executeWithErrorResponse().getList();
+        return post(VariationBatchesResult.class, uri(ITEM_VARIATIONS_BATCH_UPDATE_STOCK_PATH)).entity(variationBatch).executeWithErrorResponse().get(VariationBatchResult.class);
     }
 }

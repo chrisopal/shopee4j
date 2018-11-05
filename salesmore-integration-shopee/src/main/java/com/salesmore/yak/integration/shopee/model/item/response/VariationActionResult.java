@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.salesmore.yak.integration.shopee.model.ErrorResponse;
 import com.salesmore.yak.integration.shopee.model.item.Variation;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
 import java.util.List;
@@ -11,6 +12,7 @@ import java.util.List;
 
 @Data
 @ToString(callSuper = true)
+@EqualsAndHashCode(callSuper = true)
 public class VariationActionResult extends ErrorResponse {
 
 	private static final long serialVersionUID = 1L;
@@ -41,10 +43,4 @@ public class VariationActionResult extends ErrorResponse {
      * Stock Updated
      */
     private Long stock;
-
-    /**
-     * The identifier for an API request for error tracking
-     */
-    @JsonProperty("request_id")
-    private String requestId;
 }

@@ -2,7 +2,7 @@ package com.salesmore.yak.integration.shopee.model.item;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.salesmore.yak.integration.core.model.ModelEntity;
-import com.salesmore.yak.integration.core.service.ListResult;
+import com.salesmore.yak.integration.shopee.model.common.ListResult;
 import com.salesmore.yak.integration.shopee.model.common.AttributeInputType;
 import com.salesmore.yak.integration.shopee.model.common.AttributeType;
 import lombok.Data;
@@ -60,12 +60,6 @@ public class Attribute implements ModelEntity {
 
         @JsonProperty("attributes")
         private List<Attribute> attributes;
-
-        /**
-         * The identifier for an API request for error tracking
-         */
-        @JsonProperty("request_id")
-        private String requestId;
 
         @Override
         protected List<Attribute> value() {

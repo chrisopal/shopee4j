@@ -2,9 +2,12 @@ package com.salesmore.yak.integration.shopee.model.logistics.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.salesmore.yak.integration.core.model.ModelEntity;
+import com.salesmore.yak.integration.shopee.model.ErrorResponse;
 import com.salesmore.yak.integration.shopee.model.ObjectResult;
 import com.salesmore.yak.integration.shopee.model.order.response.RecipientAddress;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 @Data
 public class OrderLogistics implements ModelEntity {
@@ -87,12 +90,6 @@ public class OrderLogistics implements ModelEntity {
      * This value indicates whether the order was a COD (cash on delivery) order.
      */
     private boolean code;
-
-    /**
-     * The identifier for an API request for error tracking
-     */
-    @JsonProperty("request_id")
-    private String requestId;
 
     @Data
     public static class OrderLogisticsWrapper extends ObjectResult<OrderLogistics> {

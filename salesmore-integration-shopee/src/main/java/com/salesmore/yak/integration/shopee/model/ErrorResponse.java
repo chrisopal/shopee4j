@@ -1,5 +1,6 @@
 package com.salesmore.yak.integration.shopee.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.salesmore.yak.integration.core.model.Error;
 import com.salesmore.yak.integration.core.model.ErrorBaseResponse;
 import com.salesmore.yak.integration.core.model.ModelEntity;
@@ -14,6 +15,12 @@ public class ErrorResponse implements ErrorBaseResponse, ModelEntity {
     private String msg;
 
     private ResponseError error;
+
+    /**
+     * The identifier for an API request for error tracking which is used by every request
+     */
+    @JsonProperty("request_id")
+    private String requestId;
 
     @Override
     public String getMsg() {

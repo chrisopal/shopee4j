@@ -35,7 +35,7 @@ public class ReturnsServiceImpl extends BaseRestClientService implements Returns
     @Override
     public ReturnDetail.ReturnDetails getReturnList(ReturnsPaginationRequest query) {
         checkNotNull(query);
-        return post(ReturnDetail.ReturnDetails.class, uri(RETURNS_GET_LIST_RELATIVE_PATH)).entity(query).execute();
+        return post(ReturnDetail.ReturnDetails.class, uri(RETURNS_GET_LIST_RELATIVE_PATH)).entity(query).executeWithErrorResponse();
 
     }
 }

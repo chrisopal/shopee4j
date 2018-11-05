@@ -2,13 +2,18 @@ package com.salesmore.yak.integration.shopee.model.item.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.salesmore.yak.integration.core.model.ModelEntity;
+import com.salesmore.yak.integration.shopee.model.ErrorResponse;
 import com.salesmore.yak.integration.shopee.model.item.*;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 import java.util.List;
 
 @Data
-public class ItemInfo implements ModelEntity {
+@ToString(callSuper = true)
+@EqualsAndHashCode(callSuper = true)
+public class ItemInfo extends ErrorResponse implements ModelEntity {
 
     private static final long serialVersionUID = 1L;
 
@@ -179,11 +184,5 @@ public class ItemInfo implements ModelEntity {
      * One item can only have one discount at a time.
      */
     private Long discountId;
-
-    /**
-     * The identifier for an API request for error tracking
-     */
-    @JsonProperty("request_id")
-    private String requestId;
 
 }

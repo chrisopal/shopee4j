@@ -1,7 +1,8 @@
-package com.salesmore.yak.integration.core.service;
+package com.salesmore.yak.integration.shopee.model.common;
 
-import com.salesmore.yak.integration.core.transport.ListType;
 import com.salesmore.yak.integration.core.model.ModelEntity;
+import com.salesmore.yak.integration.core.transport.ListType;
+import com.salesmore.yak.integration.shopee.model.ErrorResponse;
 
 import java.util.Collections;
 import java.util.List;
@@ -11,7 +12,7 @@ import java.util.List;
  *
  * @param <T> the generic type
  */
-public abstract class ListResult<T> implements ModelEntity, ListType {
+public abstract class ListResult<T> extends ErrorResponse implements ModelEntity, ListType {
 
     private static final long serialVersionUID = 1L;
 

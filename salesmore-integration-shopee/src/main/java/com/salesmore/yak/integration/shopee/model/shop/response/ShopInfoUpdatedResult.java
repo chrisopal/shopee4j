@@ -13,7 +13,7 @@ import lombok.ToString;
 @Data
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)
-public class ShopInfoUpdatedResult extends ShopInfoBase implements ErrorBaseResponse {
+public class ShopInfoUpdatedResult extends ShopInfoBase {
 
 	private static final long serialVersionUID = 1L;
 	
@@ -28,12 +28,6 @@ public class ShopInfoUpdatedResult extends ShopInfoBase implements ErrorBaseResp
     private long shopId;
 
     /**
-     * The identifier for an API request for error tracking
-     */
-    @JsonProperty("request_id")
-    private String requestId;
-
-    /**
      * Warning message if parts of image/video uploads failed.
      */
     private String warning;
@@ -42,15 +36,5 @@ public class ShopInfoUpdatedResult extends ShopInfoBase implements ErrorBaseResp
      * The two-digit code representing the country where the order was made.
      */
     private Country country;
-
-    @Override
-    public String getMsg() {
-        return msg;
-    }
-
-    @Override
-    public Error getError() {
-        return error;
-    }
 
 }

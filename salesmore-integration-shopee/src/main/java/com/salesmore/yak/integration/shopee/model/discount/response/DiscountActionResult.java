@@ -27,10 +27,4 @@ public class DiscountActionResult extends ErrorResponse implements ModelEntity {
     @JsonProperty("modify_time")
     private Long modifyTime;
 
-    /**
-     * The identifier for an API request for error tracking
-     */
-    @JsonProperty("request_id")
-    private String requestId;
-
 }

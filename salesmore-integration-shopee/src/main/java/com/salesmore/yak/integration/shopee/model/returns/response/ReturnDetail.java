@@ -3,11 +3,13 @@ package com.salesmore.yak.integration.shopee.model.returns.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.salesmore.yak.integration.core.model.ModelEntity;
-import com.salesmore.yak.integration.core.service.ListResult;
+import com.salesmore.yak.integration.shopee.model.common.ListResult;
 import com.salesmore.yak.integration.shopee.model.common.ReturnDisputeReason;
 import com.salesmore.yak.integration.shopee.model.common.ReturnReason;
 import com.salesmore.yak.integration.shopee.model.common.ReturnStatus;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 import java.util.List;
 
@@ -139,6 +141,8 @@ public class ReturnDetail implements ModelEntity {
     private String ordersn;
 
     @Data
+    @ToString(callSuper = true)
+    @EqualsAndHashCode(callSuper = true)
     public static class ReturnDetails extends ListResult<ReturnDetail> {
 
         public static final long serialVersionUID = 1L;
@@ -146,9 +150,6 @@ public class ReturnDetail implements ModelEntity {
         private List<ReturnDetail> returns;
 
         private boolean more;
-
-        @JsonProperty("request_id")
-        private String requestId;
 
         @Override
         protected List<ReturnDetail> value() {
