@@ -16,6 +16,8 @@
         <module>salesmore-integration-connectors</module>
         <module>salesmore-integration-core</module>
         <module>salesmore-integration-shopee</module>
+        <module>salesmore-integration-fyndiq</module>
+        <module>salesmore-integration-fyndiq-test</module>
     </modules>
     <properties>
         <release.version>1.0.0</release.version>
@@ -165,22 +167,6 @@
             </plugin>
         </plugins>
     </build>
-
-    <reporting>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-javadoc-plugin</artifactId>
-                <configuration>
-                    <author>true</author>
-                    <excludePackageNames>*.internal</excludePackageNames>
-                    <reportOutputDirectory>docs</reportOutputDirectory>
-                    <destDir>javadoc</destDir>
-                    <additionalparam>-Xdoclint:none</additionalparam>
-                </configuration>
-            </plugin>
-        </plugins>
-    </reporting>
 
     <dependencyManagement>
         <dependencies>

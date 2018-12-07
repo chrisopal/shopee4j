@@ -30,5 +30,8 @@ public abstract class ListResult<T> extends ErrorResponse implements ModelEntity
     }
 
 
-    public boolean hasMore() { return false; }
+    public boolean hasMore() {
+        return false;
+    }
+
 }
